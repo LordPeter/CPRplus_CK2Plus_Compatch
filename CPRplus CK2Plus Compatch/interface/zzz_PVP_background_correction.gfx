@@ -1,0 +1,10 @@
+### This file is just here because the FPS module PVP needs to overwrite CK2Plus' backgrounds
+spriteTypes = {
+	spriteType = {
+		name = "GFX_character_background"
+		texturefile = "gfx\\characters\\shared\\backgrounds.dds"
+		noOfFrames = 27
+		norefcount = yes
+		can_be_lowres = yes
+	}
+}
