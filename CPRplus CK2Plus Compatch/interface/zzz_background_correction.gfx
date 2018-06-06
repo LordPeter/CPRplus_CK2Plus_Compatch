@@ -1,4 +1,4 @@
-### This file is just here because the FPS module PVP needs to overwrite CK2Plus' backgrounds
+### This file is just here because the compatch needs to overwrite CK2Plus' backgrounds
 spriteTypes = {
 	spriteType = {
 		name = "GFX_character_background"
