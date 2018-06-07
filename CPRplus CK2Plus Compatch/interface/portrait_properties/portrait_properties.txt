@@ -4649,6 +4649,17 @@
         }
 		modifier = {
 			factor = 0
+			trait = in_hiding
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				trait = peasant_leader
+				trait = heresiarch
+			}
+		}
+		modifier = {
+			factor = 0
 			trait = blinded
 			graphical_culture = westafricangfx
 			religion_group = pagan_group
@@ -4671,26 +4682,6 @@
 				}
 			}
 		}
-		modifier = {
-			factor = 0
-			prisoner = yes
-		}
-		modifier = {
-			factor = 0
-			OR = {
-				trait = peasant_leader
-				trait = heresiarch
-				trait = monk
-				trait = nun
-				trait = desert_mother
-				trait = desert_father
-				trait = perfecti
-			}
-		}
-		modifier = {
-			factor = 0
-			trait = in_hiding
-		}
 	}
 
 	# Common headgear 1 - hood
@@ -4700,22 +4691,20 @@
 			factor = 0
 			NOT = { trait = peasant_leader }
 			NOT = { trait = heresiarch }
-			NOT = { trait = nun }
-			NOT = { trait = druze_uqqal }
-			NOT = { trait = druze_ajawid }
 			OR = {
+				is_or_was_offmap_power_ruler = yes
 				higher_real_tier_than = baron
 				spouse = { higher_real_tier_than = baron }
 				has_minor_title = title_prince
 			}
 		}
-		modifier = {
-			factor = 100
-			OR = {
-				trait = druze_uqqal
-				trait = druze_ajawid
-			}
-		}
+		# modifier = {					# NOTE: IMPORTANT also add these to religious clothes
+			# factor = 100
+			# OR = {
+				# trait = druze_uqqal
+				# trait = druze_ajawid
+			# }
+		# }
 		modifier = {
 			factor = 2
 			is_ruler = no
@@ -4731,21 +4720,10 @@
 			factor = 0
 			trait = in_hiding
 		}
-		modifier = {
-			factor = 0
-			prisoner = yes
-		}
-		modifier = {
-			factor = 0
-			OR = {
-				trait = monk
-				trait = nun
-			}
-		}
 		#Prevent Guanche from having turbans
 		modifier = {
 			factor = 0
-			culture = canarian
+			culture = guanche
 			is_female = no
 		}
 	}
@@ -4757,10 +4735,8 @@
 			factor = 0
 			NOT = { trait = peasant_leader }
 			NOT = { trait = heresiarch }
-			NOT = { trait = monk }
-			NOT = { trait = desert_father }
-			NOT = { trait = perfecti }
 			OR = {
+				is_or_was_offmap_power_ruler = yes
 				higher_real_tier_than = count
 				spouse = { higher_real_tier_than = count }
 				has_minor_title = title_prince
@@ -4858,6 +4834,7 @@
 			NOT = { trait = peasant_leader }
 			NOT = { trait = heresiarch }
 			OR = {
+				is_or_was_offmap_power_ruler = yes
 				higher_real_tier_than = count
 				spouse = { higher_real_tier_than = count }
 				AND = {
@@ -4893,20 +4870,9 @@
 		}
 		modifier = {
 			factor = 0
-			prisoner = yes
-		}
-		modifier = {
-			factor = 0
 			OR = {
 				trait = peasant_leader
 				trait = heresiarch
-			}
-		}
-		modifier = {
-			factor = 0
-			OR = {
-				trait = monk
-				trait = nun
 			}
 		}
 		modifier = {
@@ -4938,26 +4904,12 @@
 			factor = 0
 			NOT = { trait = peasant_leader }
 			NOT = { trait = heresiarch }
-			NOT = { trait = nun }
-			NOT = { trait = desert_mother }
-			NOT = { trait = perfecti }
 			OR = {
+				is_or_was_offmap_power_ruler = yes
 				higher_real_tier_than = baron
 				spouse = { higher_real_tier_than = baron }
 				has_minor_title = title_prince
 			}
-		}
-		modifier = {
-			factor = 100
-			OR = {
-				trait = nun
-				trait = desert_mother
-			}
-		}
-		modifier = {
-			factor = 100
-			trait = perfecti
-			is_female = yes
 		}
 		modifier = {
 			factor = 2
@@ -5003,21 +4955,10 @@
 			factor = 0
 			trait = in_hiding
 		}
-		modifier = {
-			factor = 0
-			prisoner = yes
-		}
-		modifier = {
-			factor = 0
-			OR = {
-				trait = monk
-				trait = nun
-			}
-		}
 		#Prevent Guanche from having turbans
 		modifier = {
 			factor = 0
-			culture = canarian
+			culture = guanche
 			is_female = no
 		}
 	}
@@ -5027,90 +4968,15 @@
 		factor = 100
 		modifier = {
 			factor = 0
-			OR = {
-				higher_real_tier_than = duke
-				spouse = { higher_real_tier_than = duke }
-			}
-		}
-		modifier = {
-			factor = 0
-			NOT = { has_job_title = job_spymaster }
-		}
-		modifier = {
-			factor = 0
-			in_command = yes
-		}
-		modifier = {
-			factor = 0
-			prisoner = yes
-		}
-		modifier = {
-			factor = 0
-			trait = in_hiding
-		}
-		modifier = {
-			factor = 0
-			trait = nun
+			NOT = { has_portrait_property = { layer = 3 index = 9 } }
 		}
 	}
 
 	# Martial headgear
 	10 = {
-		factor = 100
 		modifier = {
 			factor = 0
-			is_alive = no
-			NOT = {
-				death_reason = death_battle
-			}
-		}
-		modifier = {
-			factor = 0
-			in_command = no
-			NOT = { has_job_title  = job_marshal }
-			NOT = {
-				primary_title = {
-					OR = {
-						mercenary = yes
-						holy_order = yes
-					}
-				}
-			}
-		}
-		modifier = {
-			factor = 0
-			OR = {
-				higher_real_tier_than = duke
-				spouse = { higher_real_tier_than = duke }
-			}
-			in_command = no
-		}
-		modifier = {
-			factor = 0
-			OR = {
-				is_nomadic = yes
-				AND = {
-					liege = { is_nomadic = yes }
-					is_ruler = no
-				}
-			}
-			war = no
-			NOR = {
-				siege = { is_attacker = yes }
-				has_job_title  = job_marshal
-			}
-		}
-		modifier = {
-			factor = 0
-			prisoner = yes
-		}
-		modifier = {
-			factor = 0
-			trait = blinded
-			graphical_culture = westafricangfx
-			religion_group = pagan_group
-			is_alive = yes
-			NOT = { trait = lunatic }
+			NOT = { has_portrait_property = { layer = 3 index = 10 } }
 		}
 	}
 
@@ -5119,10 +4985,7 @@
 		factor = 4
 		modifier = {
 			factor = 0
-			prisoner = no
 			NOT = { trait = in_hiding }
-			NOT = { trait = monk }
-			NOT = { trait = nun }
 			OR = {
 				higher_real_tier_than = baron
 				spouse = { higher_real_tier_than = baron }
@@ -5152,44 +5015,32 @@
 				}
 			}
 		}
+	}
+	
+	# Chinese Martial Extension 1
+	12 = {
+		factor = 100
 		modifier = {
 			factor = 0
-			trait = monk
-			OR = {
-				AND = {
-					year = 950
-					OR = {
-						AND = {
-							culture_group = central_germanic
-							NOR = {
-								culture = visigothic
-								culture = suebi
-							}
-						}
-						culture_group = west_germanic
-						AND = {
-							culture_group = latin
-							NOT = {
-								culture = italian
-							}
-						}
-						culture = occitan
-						culture = ligurian
-						culture_group = celtic
-						culture_group = west_slavic
-						culture_group = south_slavic
-					}
-				}
-				AND = {
-					religion_group = christian
-					OR = {
-						culture_group = magyar
-						culture_group = north_germanic
-						culture_group = baltic
-						culture = livonian
-					}
-				}
-			}
+			NOT = { has_portrait_property = { layer = 3 index = 12 } }
+		}
+	}
+	
+	# Chinese Martial Extension 2
+	13 = {
+		factor = 100
+		modifier = {
+			factor = 0
+			NOT = { has_portrait_property = { layer = 3 index = 13 } }
+		}
+	}
+	
+	# Chinese Martial Extension 3
+	14 = {
+		factor = 100
+		modifier = {
+			factor = 0
+			NOT = { has_portrait_property = { layer = 3 index = 14 } }
 		}
 	}
 }
