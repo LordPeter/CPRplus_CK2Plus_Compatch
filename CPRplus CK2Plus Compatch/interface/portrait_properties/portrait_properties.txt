@@ -4,8 +4,8 @@
 0 = {						# Now almost completely independent from CPR+
 	0 = { # castle 1
 		factor = 1
-		#VIET+: major restrictions to the background
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#1: Building (only when besieged)
+		#FPS: major restrictions to the background
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building (only when besieged)
 			factor = 0
 			OR = {
 				location = {
@@ -21,13 +21,13 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		modifier = {	#FPS: Geographic/Religion/Culture allowed
 			factor = 0
-			location = {	#VIET+: Western architecture
+			location = {	#FPS: Western architecture
 				NOR = {
 					region = world_europe
 					religion_group = christian
-					OR = {	#VIET+: all western cultures
+					OR = {	#FPS: all western cultures
 						culture_group = crusader_group
 						culture_group = north_germanic
 						culture_group = central_germanic
@@ -57,7 +57,7 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Government/Location allowed
+		modifier = {	#FPS: Government/Location allowed
 			factor = 0
 			OR = {
 				NOR = {
@@ -74,11 +74,11 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Other major restrictions
+		#modifier = {	#FPS: Other major restrictions
 		#	factor = 0
 		#}
 		
-		#VIET+: from here on non-essential modifiers affecting just the likeliness
+		#FPS: from here on non-essential modifiers affecting just the likeliness
 		modifier = {
 			factor = 2
 			location = {
@@ -105,13 +105,13 @@
 			}
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
-			AND = {	#VIET+: Western architecture background
+			AND = {	#FPS: Western architecture background
 				is_alive = no
 				NOR = {
 					religion_group = christian
-					OR = {	#VIET+: all western cultures
+					OR = {	#FPS: all western cultures
 						culture_group = crusader_group
 						culture_group = north_germanic
 						culture_group = central_germanic
@@ -145,7 +145,7 @@
 	
 	1 = { #throne room
 		factor = 33
-		modifier = {	#VIET+: Basic check for warfare and seaborne	#1: Building
+		modifier = {	#FPS: Basic check for warfare and seaborne	#1: Building
 			factor = 0
 			OR = {
 				location = {
@@ -161,12 +161,12 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		#modifier = {	#FPS: Geographic/Religion/Culture allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		modifier = {	#VIET+: Government/Location allowed
+		modifier = {	#FPS: Government/Location allowed
 			factor = 0
 			OR = {
 				NOR = {
@@ -183,13 +183,13 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Other major restrictions
+		modifier = {	#FPS: Other major restrictions
 			factor = 0
 			OR = {
 				NOR = {
 					real_tier = king
 					real_tier = emperor
-					#spouse = {			#VIET+: Would that work? Think about it
+					#spouse = {			#FPS: Would that work? Think about it
 					#	OR = {
 					#		real_tier = king
 					#		real_tier = emperor
@@ -211,9 +211,9 @@
 			}
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
-			AND = {	#VIET+: Royal background
+			AND = {	#FPS: Royal background
 				is_alive = no
 				NOR = {
 					real_tier = king
@@ -225,7 +225,7 @@
 	
 	2 = { # dungeon
 		factor = 100
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#1: Building
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
 			factor = 0
 			OR = {
 				location = {
@@ -241,17 +241,17 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		#modifier = {	#FPS: Geographic/Religion/Culture allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		#modifier = {	#VIET+: Government/Location allowed
+		#modifier = {	#FPS: Government/Location allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		modifier = {	#VIET+: Other major restrictions
+		modifier = {	#FPS: Other major restrictions
 			factor = 0
 			AND = {
 				is_alive = yes
@@ -265,9 +265,9 @@
 			}
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
-			AND = {	#VIET+: Death as unfree
+			AND = {	#FPS: Death as unfree
 				is_alive = no
 				NOR = {
 					death_reason = death_dungeon
@@ -280,7 +280,7 @@
 	
 	3 = { # coniferous forest
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#2: Terrain (troop leading allowed, siege attack when tribal/nomadic)
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#2: Terrain (troop leading allowed, siege attack when tribal/nomadic)
 			factor = 0
 			OR = {
 				location = {
@@ -297,7 +297,7 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Geographic/Religion/Culture allowed		#*NOTE*: Apparently fixed. Yay!
+		modifier = {	#FPS: Geographic/Religion/Culture allowed		#*NOTE*: Apparently fixed. Yay!
 			factor = 0
 			location = {
 				NOR = {
@@ -306,12 +306,12 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Government/Location allowed
+		#modifier = {	#FPS: Government/Location allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		modifier = {	#VIET+: Other major restrictions
+		modifier = {	#FPS: Other major restrictions
 			factor = 0
 			location = {
 				NOR = {
@@ -326,7 +326,7 @@
 			is_tribal = yes
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
 			AND = {	#Well that's tricky. No idea yet actually.
 				is_alive = no
@@ -346,9 +346,9 @@
 		}
 	}
 	
-	4 = { # VIET+: wood house interior	(was vanilla: bed)
+	4 = { # FPS: wood house interior	(was vanilla: bed)
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#1: Building
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
 			factor = 0
 			OR = {
 				location = {
@@ -364,12 +364,12 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		#modifier = {	#FPS: Geographic/Religion/Culture allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		modifier = {	#VIET+: Government/Location allowed
+		modifier = {	#FPS: Government/Location allowed
 			factor = 0
 			OR = {
 				NOR = {
@@ -403,7 +403,7 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Other major restrictions
+		#modifier = {	#FPS: Other major restrictions
 		#	factor = 0
 		#}
 		
@@ -412,7 +412,7 @@
 			is_tribal = yes
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
 			AND = {
 				is_alive = no
@@ -444,7 +444,7 @@
 	
 	5 = { # tavern
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#1: Building
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
 			factor = 0
 			OR = {
 				location = {
@@ -460,13 +460,13 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		modifier = {	#FPS: Geographic/Religion/Culture allowed
 			factor = 0
-			location = {	#VIET+: Western architecture
+			location = {	#FPS: Western architecture
 				NOR = {
 					region = world_europe
 					religion_group = christian
-					OR = {	#VIET+: all western cultures
+					OR = {	#FPS: all western cultures
 						culture_group = crusader_group
 						culture_group = north_germanic
 						culture_group = central_germanic
@@ -496,7 +496,7 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Government/Location allowed
+		modifier = {	#FPS: Government/Location allowed
 			factor = 0
 			OR = {
 				NOR = {
@@ -515,7 +515,7 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Other major restrictions
+		#modifier = {	#FPS: Other major restrictions
 		#	factor = 0
 		#}
 		
@@ -545,13 +545,13 @@
 			trait = in_hiding
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
-			AND = {	#VIET+: Western architecture background
+			AND = {	#FPS: Western architecture background
 				is_alive = no
 				NOR = {
 					region = world_europe
-					OR = {	#VIET+: all western cultures
+					OR = {	#FPS: all western cultures
 						culture_group = crusader_group
 						culture_group = north_germanic
 						culture_group = central_germanic
@@ -592,7 +592,7 @@
 	
 	6 = { # military camp
 		factor = 100
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#3: Army Camp (only siege attacker if not tribal/nomadic, fallen soldiers)
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#3: Army Camp (only siege attacker if not tribal/nomadic, fallen soldiers)
 			factor = 0
 			OR = {
 				location = {
@@ -609,21 +609,21 @@
 				is_nomadic = yes
 			}
 		}
-		#modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		#modifier = {	#FPS: Geographic/Religion/Culture allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		#modifier = {	#VIET+: Government/Location allowed
+		#modifier = {	#FPS: Government/Location allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		#modifier = {	#VIET+: Other major restrictions
+		#modifier = {	#FPS: Other major restrictions
 		#	factor = 0
 		#}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
 			AND = {
 				is_alive = no
@@ -636,7 +636,7 @@
 	
 	7 = { # jungle forest		(was vanilla: Dolmen)
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#2: Terrain
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#2: Terrain
 			factor = 0
 			OR = {
 				location = {
@@ -653,7 +653,7 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Geographic/Religion/Culture allowed		#*NOTE*: Apparently fixed. Yay!
+		modifier = {	#FPS: Geographic/Religion/Culture allowed		#*NOTE*: Apparently fixed. Yay!
 			factor = 0
 			location = {
 				OR = {
@@ -662,12 +662,12 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Government/Location allowed
+		#modifier = {	#FPS: Government/Location allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		modifier = {	#VIET+: Other major restrictions
+		modifier = {	#FPS: Other major restrictions
 			factor = 0
 			location = {
 				OR = {
@@ -676,7 +676,7 @@
 						terrain = woods
 						terrain = forest
 					}
-					is_winter = yes	#VIET+: warm terrain
+					is_winter = yes	#FPS: warm terrain
 				}
 			}
 		}
@@ -694,7 +694,7 @@
 			is_tribal = yes
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
 			AND = {
 				is_alive = no
@@ -715,9 +715,9 @@
 		}
 	}
 	
-	8 = { # VIET+: lush river meadow		(was vanilla: gallows)
+	8 = { # FPS: lush river meadow		(was vanilla: gallows)
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#2: Terrain
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#2: Terrain
 			factor = 0
 			OR = {
 				location = {
@@ -734,17 +734,17 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		#modifier = {	#FPS: Geographic/Religion/Culture allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		#modifier = {	#VIET+: Government/Location allowed
+		#modifier = {	#FPS: Government/Location allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		modifier = {	#VIET+: Other major restrictions
+		modifier = {	#FPS: Other major restrictions
 			factor = 0
 			location = {
 				OR = {
@@ -753,7 +753,7 @@
 						borders_major_river = yes
 						borders_lake = yes
 					}
-					is_winter = yes	#VIET+: warm terrain
+					is_winter = yes	#FPS: warm terrain
 					terrain = arctic
 				}
 			}
@@ -766,7 +766,7 @@
 			}
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
 			AND = {
 				is_alive = no
@@ -786,7 +786,7 @@
 	
 	9 = { # Church
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#1: Building
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
 			factor = 0
 			OR = {
 				location = {
@@ -802,15 +802,15 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		modifier = {	#FPS: Geographic/Religion/Culture allowed
 			factor = 0
-			location = {	#VIET+: Christian temple
+			location = {	#FPS: Christian temple
 				NOT = {
 					religion_group = christian
 				}
 			}
 		}
-		modifier = {	#VIET+: Government/Location allowed
+		modifier = {	#FPS: Government/Location allowed
 			factor = 0
 			OR = {
 				NOR = {
@@ -826,7 +826,7 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Other major restrictions
+		#modifier = {	#FPS: Other major restrictions
 		#	factor = 0
 		#}
 		
@@ -850,7 +850,7 @@
 			factor = 2
 			region = world_europe
 		}
-		modifier = {	#VIET+: INSIDE (!) the church
+		modifier = {	#FPS: INSIDE (!) the church
 			factor = 0.1
 			NOR = {
 				religion_group = christian
@@ -858,9 +858,9 @@
 			}
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
-			AND = {	#VIET+: Christian background
+			AND = {	#FPS: Christian background
 				is_alive = no
 				OR = {
 					NOT = {
@@ -877,7 +877,7 @@
 	
 	10 = { # Desert
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#2: Terrain
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#2: Terrain
 			factor = 0
 			OR = {
 				location = {
@@ -894,17 +894,17 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		#modifier = {	#FPS: Geographic/Religion/Culture allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		#modifier = {	#VIET+: Government/Location allowed
+		#modifier = {	#FPS: Government/Location allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		modifier = {	#VIET+: Other major restrictions
+		modifier = {	#FPS: Other major restrictions
 			factor = 0
 			location = {
 				OR = {
@@ -912,7 +912,7 @@
 						terrain = desert
 						terrain = coastal_desert
 					}
-					is_winter = yes	#VIET+: warm terrain
+					is_winter = yes	#FPS: warm terrain
 				}
 			}
 		}
@@ -925,7 +925,7 @@
 			}
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
 			AND = {
 				is_alive = no
@@ -941,7 +941,7 @@
 	
 	11 = { # steppe
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#2: Terrain
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#2: Terrain
 			factor = 0
 			OR = {
 				location = {
@@ -958,18 +958,18 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		modifier = {	#FPS: Geographic/Religion/Culture allowed
 			factor = 0
 			location = {
 				region = world_africa
 			}
 		}
-		#modifier = {	#VIET+: Government/Location allowed
+		#modifier = {	#FPS: Government/Location allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		modifier = {	#VIET+: Other major restrictions
+		modifier = {	#FPS: Other major restrictions
 			factor = 0
 			location = {
 				NOR = {
@@ -985,7 +985,7 @@
 			is_nomadic = yes
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
 			AND = {
 				is_alive = no
@@ -1002,30 +1002,30 @@
 	
 	12 = { # Ocean w ships
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#4: Seaborne (only when near port or at sea)
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#4: Seaborne (only when near port or at sea)
 			factor = 0
 			location = {
 				NOT = {
-					#port = yes	#VIET+: Not sure if should be activated
+					#port = yes	#FPS: Not sure if should be activated
 					is_land = no
 				}
 			}
 		}
-		#modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		#modifier = {	#FPS: Geographic/Religion/Culture allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		#modifier = {	#VIET+: Government/Location allowed
+		#modifier = {	#FPS: Government/Location allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		#modifier = {	#VIET+: Other major restrictions
+		#modifier = {	#FPS: Other major restrictions
 		#	factor = 0
 		#}
 		
-		#modifier = {	#VIET+: Not sure if should be activated, see above
+		#modifier = {	#FPS: Not sure if should be activated, see above
 		#	factor = 0.1
 		#	location = {
 		#		NOT = {
@@ -1034,7 +1034,7 @@
 		#	}
 		#}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
 			is_alive = no	#Unpossible for dead characters
 		}
@@ -1042,7 +1042,7 @@
 	
 	13 = { # Muslim interior 1
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#1: Building
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
 			factor = 0
 			OR = {
 				location = {
@@ -1058,9 +1058,9 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		modifier = {	#FPS: Geographic/Religion/Culture allowed
 			factor = 0
-			location = {	#VIET+: Eastern architecture
+			location = {	#FPS: Eastern architecture
 				NOR = {
 					region = world_india
 					region = world_persia
@@ -1072,7 +1072,7 @@
 					religion_group = jewish_group
 					religion_group = zoroastrian_group
 					religion_group = indian_group
-					OR = {	#VIET+: all eastern cultures
+					OR = {	#FPS: all eastern cultures
 						culture_group = coptic_group
 						culture_group = altaic
 						culture_group = arabic
@@ -1093,7 +1093,7 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Government/Location allowed
+		modifier = {	#FPS: Government/Location allowed
 			factor = 0
 			OR = {
 				NOR = {
@@ -1110,11 +1110,11 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Other major restrictions
+		#modifier = {	#FPS: Other major restrictions
 		#	factor = 0
 		#}
 		
-		#VIET+: from here on non-essential modifiers affecting just the likeliness
+		#FPS: from here on non-essential modifiers affecting just the likeliness
 		modifier = {
 			factor = 2
 			location = {
@@ -1145,16 +1145,16 @@
 			}
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
-			AND = {	#VIET+: Eastern architecture background
+			AND = {	#FPS: Eastern architecture background
 				is_alive = no
 				NOR = {
 					religion_group = muslim
 					religion_group = jewish_group
 					religion_group = zoroastrian_group
 					religion_group = indian_group
-					OR = {	#VIET+: all eastern cultures
+					OR = {	#FPS: all eastern cultures
 						culture_group = coptic_group
 						culture_group = altaic
 						culture_group = arabic
@@ -1179,7 +1179,7 @@
 	
 	14 = { # Harem
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#1: Building
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
 			factor = 0
 			OR = {
 				location = {
@@ -1195,9 +1195,9 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		modifier = {	#FPS: Geographic/Religion/Culture allowed
 			factor = 0
-			location = {	#VIET+: Eastern architecture
+			location = {	#FPS: Eastern architecture
 				NOR = {
 					region = world_india
 					region = world_persia
@@ -1209,7 +1209,7 @@
 					religion_group = jewish_group
 					religion_group = zoroastrian_group
 					religion_group = indian_group
-					OR = {	#VIET+: all eastern cultures
+					OR = {	#FPS: all eastern cultures
 						culture_group = coptic_group
 						culture_group = altaic
 						culture_group = arabic
@@ -1230,7 +1230,7 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Government/Location allowed
+		modifier = {	#FPS: Government/Location allowed
 			factor = 0
 			OR = {
 				NOR = {
@@ -1247,14 +1247,14 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Other major restrictions
+		modifier = {	#FPS: Other major restrictions
 			factor = 0
 			OR = {
-				#NOR = {		#VIET+: Can have a harem
+				#NOR = {		#FPS: Can have a harem
 				#	has_concubinage = yes	#*WARN*: Test these more!
 				#	has_polygamy = yes
 				#}
-				location = {	#VIET+: Only allowed in own or family harem
+				location = {	#FPS: Only allowed in own or family harem
 					NOR = {
 						owner = ROOT
 						owner = {
@@ -1262,7 +1262,7 @@
 						}
 					}
 				}
-				NOR = {		#VIET+: TEST: Actually has (or hubby has) multiple wives/concubines:
+				NOR = {		#FPS: TEST: Actually has (or hubby has) multiple wives/concubines:
 					AND = {
 						is_female = no
 						OR = {
@@ -1303,14 +1303,14 @@
 			trait = lustful
 		}
 		modifier = {
-			factor = 0.5	#VIET+: Unlikely for chaste men (not Muslims, but e.g. Indians)
+			factor = 0.5	#FPS: Unlikely for chaste men (not Muslims, but e.g. Indians)
 			AND = {
 				is_female = no
 				trait = chaste
 			}
 		}
 		modifier = {
-			factor = 2		#VIET+: More likely for women who belong in a harem
+			factor = 2		#FPS: More likely for women who belong in a harem
 			AND = {
 				is_female = yes
 				OR = {
@@ -1320,7 +1320,7 @@
 			}
 		}
 		#modifier = {
-		#	factor = 0.5	#VIET+: Unlikely for men who don't own a harem
+		#	factor = 0.5	#FPS: Unlikely for men who don't own a harem
 		#	AND = {
 		#		is_female = no
 		#		NOR = {
@@ -1341,16 +1341,16 @@
 			}
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
-			AND = {	#VIET+: Eastern architecture background
+			AND = {	#FPS: Eastern architecture background
 				is_alive = no
 				NOR = {
 					religion_group = muslim
 					religion_group = jewish_group
 					religion_group = zoroastrian_group
 					religion_group = indian_group
-					OR = {	#VIET+: all eastern cultures
+					OR = {	#FPS: all eastern cultures
 						culture_group = coptic_group
 						culture_group = altaic
 						culture_group = arabic
@@ -1375,7 +1375,7 @@
 	
 	15 = { # Muslim interior 2 (with windows)
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#1: Building
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
 			factor = 0
 			OR = {
 				location = {
@@ -1391,9 +1391,9 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		modifier = {	#FPS: Geographic/Religion/Culture allowed
 			factor = 0
-			location = {	#VIET+: Eastern architecture
+			location = {	#FPS: Eastern architecture
 				NOR = {
 					region = world_india
 					region = world_persia
@@ -1405,7 +1405,7 @@
 					religion_group = jewish_group
 					religion_group = zoroastrian_group
 					religion_group = indian_group
-					OR = {	#VIET+: all eastern cultures
+					OR = {	#FPS: all eastern cultures
 						culture_group = coptic_group
 						culture_group = altaic
 						culture_group = arabic
@@ -1426,7 +1426,7 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Government/Location allowed
+		modifier = {	#FPS: Government/Location allowed
 			factor = 0
 			OR = {
 				NOR = {
@@ -1443,7 +1443,7 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Other major restrictions
+		#modifier = {	#FPS: Other major restrictions
 		#	factor = 0
 		#}
 		
@@ -1477,16 +1477,16 @@
 			}
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
-			AND = {	#VIET+: Eastern architecture background
+			AND = {	#FPS: Eastern architecture background
 				is_alive = no
 				NOR = {
 					religion_group = muslim
 					religion_group = jewish_group
 					religion_group = zoroastrian_group
 					religion_group = indian_group
-					OR = {	#VIET+: all eastern cultures
+					OR = {	#FPS: all eastern cultures
 						culture_group = coptic_group
 						culture_group = altaic
 						culture_group = arabic
@@ -1511,7 +1511,7 @@
 	
 	16 = { # Mongol camp
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#1: Building
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
 			factor = 0
 			OR = {
 				location = {
@@ -1527,12 +1527,12 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		#modifier = {	#FPS: Geographic/Religion/Culture allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		modifier = {	#VIET+: Government/Location allowed
+		modifier = {	#FPS: Government/Location allowed
 			factor = 0
 			OR = {
 				NOR = {
@@ -1544,7 +1544,7 @@
 						NOT = {
 							holding_type = nomad
 						}
-						NOR = {		#VIET+: visible green grass reasoning
+						NOR = {		#FPS: visible green grass reasoning
 							terrain = steppe
 							terrain = plains
 							terrain = farmlands
@@ -1555,7 +1555,7 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Other major restrictions
+		#modifier = {	#FPS: Other major restrictions
 		#	factor = 0
 		#}
 		
@@ -1575,7 +1575,7 @@
 	
 	17 = { # straw hut		(was vanilla: Mongol camp 2)
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#1: Building
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
 			factor = 0
 			OR = {
 				location = {
@@ -1591,12 +1591,12 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		#modifier = {	#FPS: Geographic/Religion/Culture allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		modifier = {	#VIET+: Government/Location allowed
+		modifier = {	#FPS: Government/Location allowed
 			factor = 0
 			OR = {
 				NOR = {
@@ -1612,7 +1612,7 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Other major restrictions
+		#modifier = {	#FPS: Other major restrictions
 		#	factor = 0
 		#}
 		
@@ -1627,7 +1627,7 @@
 			}
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
 			AND = {
 				is_alive = no
@@ -1659,7 +1659,7 @@
 	
 	18 = { # Papal palace
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#1: Building
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
 			factor = 0
 			OR = {
 				location = {
@@ -1675,12 +1675,12 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		#modifier = {	#FPS: Geographic/Religion/Culture allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		modifier = {	#VIET+: Government/Location allowed
+		modifier = {	#FPS: Government/Location allowed
 			factor = 0
 			location = {
 				NOT = {
@@ -1688,7 +1688,7 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Other major restrictions		#*NOTE*: Being tweaked...
+		modifier = {	#FPS: Other major restrictions		#*NOTE*: Being tweaked...
 			factor = 0
 			#NOT = {
 			#	AND = {
@@ -1755,7 +1755,7 @@
 			factor = 0.5
 			trait = cynical
 		}
-		modifier = {	#VIET+: INSIDE (!) the church
+		modifier = {	#FPS: INSIDE (!) the church
 			factor = 0.5
 			NOR = {
 				religion_group = christian
@@ -1763,9 +1763,9 @@
 			}
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
-			AND = {	#VIET+: Papal background
+			AND = {	#FPS: Papal background
 				is_alive = no
 				OR = {
 					OR {
@@ -1789,7 +1789,7 @@
 	
 	19 = { # Muslim mosque
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#1: Building
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
 			factor = 0
 			OR = {
 				location = {
@@ -1805,15 +1805,15 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		modifier = {	#FPS: Geographic/Religion/Culture allowed
 			factor = 0
-			location = {	#VIET+: Christian temple
+			location = {	#FPS: Christian temple
 				NOT = {
 					religion_group = muslim
 				}
 			}
 		}
-		modifier = {	#VIET+: Government/Location allowed
+		modifier = {	#FPS: Government/Location allowed
 			factor = 0
 			OR = {
 				NOR = {
@@ -1829,7 +1829,7 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Other major restrictions
+		#modifier = {	#FPS: Other major restrictions
 		#	factor = 0
 		#}
 		
@@ -1861,9 +1861,9 @@
 			}
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
-			AND = {	#VIET+: Muslim background
+			AND = {	#FPS: Muslim background
 				is_alive = no
 				OR = {
 					NOT = {
@@ -1880,7 +1880,7 @@
 	
 	20 = { # Indian temple		(was vanilla: Pagan human sacrifice)
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#1: Building
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
 			factor = 0
 			OR = {
 				location = {
@@ -1896,15 +1896,15 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		modifier = {	#FPS: Geographic/Religion/Culture allowed
 			factor = 0
-			location = {	#VIET+: Christian temple
+			location = {	#FPS: Christian temple
 				NOT = {
 					religion_group = indian_group
 				}
 			}
 		}
-		modifier = {	#VIET+: Government/Location allowed
+		modifier = {	#FPS: Government/Location allowed
 			factor = 0
 			OR = {
 				NOR = {
@@ -1920,7 +1920,7 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Other major restrictions
+		#modifier = {	#FPS: Other major restrictions
 		#	factor = 0
 		#}
 		
@@ -1956,9 +1956,9 @@
 			}
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
-			AND = {	#VIET+: Indian background
+			AND = {	#FPS: Indian background
 				is_alive = no
 				OR = {
 					NOT = {
@@ -1980,7 +1980,7 @@
 	
 	21 = { # Tundra/snow
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#2: Terrain
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#2: Terrain
 			factor = 0
 			OR = {
 				location = {
@@ -1997,15 +1997,15 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		#modifier = {	#FPS: Geographic/Religion/Culture allowed
 		#	factor = 0
 		#}
-		#modifier = {	#VIET+: Government/Location allowed
+		#modifier = {	#FPS: Government/Location allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		modifier = {	#VIET+: Other major restrictions
+		modifier = {	#FPS: Other major restrictions
 			factor = 0
 			location = {
 				NOR = {
@@ -2031,7 +2031,7 @@
 			}
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
 			AND = {
 				is_alive = no
@@ -2046,7 +2046,7 @@
 	
 	22 = { # African Savanna
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#2: Terrain
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#2: Terrain
 			factor = 0
 			OR = {
 				location = {
@@ -2063,7 +2063,7 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		modifier = {	#FPS: Geographic/Religion/Culture allowed
 			factor = 0
 			location = {
 				NOT = {
@@ -2071,12 +2071,12 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Government/Location allowed
+		#modifier = {	#FPS: Government/Location allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		modifier = {	#VIET+: Other major restrictions
+		modifier = {	#FPS: Other major restrictions
 			factor = 0
 			location = {
 				OR = {
@@ -2086,7 +2086,7 @@
 						terrain = steppe
 						terrain = farmlands
 					}
-					is_winter = yes	#VIET+: warm terrain
+					is_winter = yes	#FPS: warm terrain
 				}
 			}
 		}
@@ -2118,7 +2118,7 @@
 			}
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
 			AND = {
 				is_alive = no
@@ -2141,7 +2141,7 @@
 	
 	23 = { # Mountains
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#2: Terrain
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#2: Terrain
 			factor = 0
 			OR = {
 				location = {
@@ -2158,17 +2158,17 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		#modifier = {	#FPS: Geographic/Religion/Culture allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		#modifier = {	#VIET+: Government/Location allowed
+		#modifier = {	#FPS: Government/Location allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		modifier = {	#VIET+: Other major restrictions
+		modifier = {	#FPS: Other major restrictions
 			factor = 0
 			location = {
 				NOR = {
@@ -2191,7 +2191,7 @@
 			}
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
 			AND = {
 				is_alive = no
@@ -2207,7 +2207,7 @@
 	
 	24 = { # Green Hills
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#2: Terrain
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#2: Terrain
 			factor = 0
 			OR = {
 				location = {
@@ -2224,7 +2224,7 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		modifier = {	#FPS: Geographic/Religion/Culture allowed
 			factor = 0
 			location = {
 				NOT = {
@@ -2232,12 +2232,12 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Government/Location allowed
+		#modifier = {	#FPS: Government/Location allowed
 		#	factor = 0
 		#	NOR = {
 		#	}
 		#}
-		modifier = {	#VIET+: Other major restrictions
+		modifier = {	#FPS: Other major restrictions
 			factor = 0
 			location = {
 				NOR = {
@@ -2266,7 +2266,7 @@
 			}
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
 			AND = {
 				is_alive = no
@@ -2287,7 +2287,7 @@
 	
 	25 = { # Mediterranean Villa
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#1: Building
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
 			factor = 0
 			OR = {
 				location = {
@@ -2303,9 +2303,9 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		modifier = {	#FPS: Geographic/Religion/Culture allowed
 			factor = 0
-			location = {	#VIET+: Mediterranean architecture
+			location = {	#FPS: Mediterranean architecture
 				NOR = {
 					region = world_europe_south
 					region = world_europe_west_iberia
@@ -2314,7 +2314,7 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Government/Location allowed
+		modifier = {	#FPS: Government/Location allowed
 			factor = 0
 			OR = {
 				NOR = {
@@ -2330,7 +2330,7 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Other major restrictions
+		#modifier = {	#FPS: Other major restrictions
 		#	factor = 0
 		#}
 		
@@ -2355,7 +2355,7 @@
 			factor = 1.5
 			location = {
 				OR = {
-					culture_group = crusader_group	#VIET+: south European cultures
+					culture_group = crusader_group	#FPS: south European cultures
 					culture_group = latin
 					culture_group = iberian
 					culture_group = byzantine
@@ -2368,12 +2368,12 @@
 			is_patrician = yes
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
-			AND = {	#VIET+: south European architecture background
+			AND = {	#FPS: south European architecture background
 				is_alive = no
 				NOR = {
-					culture_group = crusader_group	#VIET+: south European cultures
+					culture_group = crusader_group	#FPS: south European cultures
 					culture_group = latin
 					culture_group = iberian
 					culture_group = byzantine
@@ -2385,7 +2385,7 @@
 	
 	26 = { # Alhambra
 		factor = 1
-		modifier = {	#VIET+: Basic check for warfare and seaborne:	#1: Building
+		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
 			factor = 0
 			OR = {
 				location = {
@@ -2401,9 +2401,9 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Geographic/Religion/Culture allowed
+		modifier = {	#FPS: Geographic/Religion/Culture allowed
 			factor = 0
-			location = {	#VIET+: Eastern architecture
+			location = {	#FPS: Eastern architecture
 				NOR = {
 					region = world_europe_west_iberia
 					region = world_africa_north
@@ -2411,7 +2411,7 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: Government/Location allowed
+		modifier = {	#FPS: Government/Location allowed
 			factor = 0
 			OR = {
 				NOR = {
@@ -2428,7 +2428,7 @@
 				}
 			}
 		}
-		#modifier = {	#VIET+: Other major restrictions
+		#modifier = {	#FPS: Other major restrictions
 		#	factor = 0
 		#}
 		
@@ -2453,12 +2453,12 @@
 			}
 		}
 		
-		modifier = {	#VIET+: R.I.P. Mechanics
+		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
-			AND = {	#VIET+: south Mediterranean architecture background
+			AND = {	#FPS: south Mediterranean architecture background
 				is_alive = no
 				NOR = {
-					culture_group = iberian	#VIET+: south Mediterranean cultures
+					culture_group = iberian	#FPS: south Mediterranean cultures
 					culture_group = arabic
 					culture_group = aramaic
 					culture_group = crusader_group
@@ -3325,7 +3325,7 @@
 				}
 				AND = {
 					is_alive = no
-					NOT = {								#VIET+
+					NOT = {								#FPS
 						death_reason = death_dungeon
 					}
 				}
@@ -3414,7 +3414,7 @@
 			NOT = { trait = leper }
 		}
 		modifier = {
-			factor = 0.01	#PVP: Should not be impossible, only unlikely
+			factor = 0.01	#FPS: Should not be impossible, only unlikely
 			age = 18
 			NOR = {
 				religion = catholic
@@ -3507,7 +3507,7 @@
 			}
 		}
 		modifier = {
-			factor = 0.5	#PVP: Should not be impossible, only unlikely
+			factor = 0.5	#FPS: Should not be impossible, only unlikely
 			NOT = { age = 18 }
 		}
 		modifier = {
@@ -3556,7 +3556,7 @@
 			}
 		}
 		modifier = {
-			factor = 0.5	#PVP: Should not be impossible, only unlikely
+			factor = 0.5	#FPS: Should not be impossible, only unlikely
 			NOT = { age = 18 }
 		}
 		modifier = {
@@ -3605,7 +3605,7 @@
 			}
 		}
 		modifier = {
-			factor = 0.5	#PVP: Should not be impossible, only unlikely
+			factor = 0.5	#FPS: Should not be impossible, only unlikely
 			NOT = { age = 18 }
 		}
 		modifier = {
@@ -3654,7 +3654,7 @@
 			}
 		}
 		modifier = {
-			factor = 0.5	#PVP: Should not be impossible, only unlikely
+			factor = 0.5	#FPS: Should not be impossible, only unlikely
 			NOT = { age = 18 }
 		}
 		modifier = {
@@ -3702,7 +3702,7 @@
 			}
 		}
 		modifier = {
-			factor = 0.5	#PVP: Should not be impossible, only unlikely
+			factor = 0.5	#FPS: Should not be impossible, only unlikely
 			NOT = { age = 18 }
 		}
 		modifier = {
@@ -3751,7 +3751,7 @@
 			}
 		}
 		modifier = {
-			factor = 0.5	#PVP: Should not be impossible, only unlikely
+			factor = 0.5	#FPS: Should not be impossible, only unlikely
 			NOT = { age = 18 }
 		}
 		modifier = {
@@ -3800,7 +3800,7 @@
 			}
 		}
 		modifier = {
-			factor = 0.5	#PVP: Should not be impossible, only unlikely
+			factor = 0.5	#FPS: Should not be impossible, only unlikely
 			NOT = { age = 18 }
 		}
 		modifier = {
@@ -3859,7 +3859,7 @@
 			}
 		}
 		modifier = {
-			factor = 0.5	#PVP: Should not be impossible, only unlikely
+			factor = 0.5	#FPS: Should not be impossible, only unlikely
 			NOT = { age = 18 }
 		}
 		modifier = {
@@ -3918,7 +3918,7 @@
 			}
 		}
 		modifier = {
-			factor = 0.5	#PVP: Should not be impossible, only unlikely
+			factor = 0.5	#FPS: Should not be impossible, only unlikely
 			NOT = { age = 18 }
 		}
 		modifier = {
@@ -3977,7 +3977,7 @@
 			}
 		}
 		modifier = {
-			factor = 0.5	#PVP: Should not be impossible, only unlikely
+			factor = 0.5	#FPS: Should not be impossible, only unlikely
 			NOT = { age = 18 }
 		}
 		modifier = {
@@ -4035,7 +4035,7 @@
 			}
 		}
 		modifier = {
-			factor = 0.5	#PVP: Should not be impossible, only unlikely
+			factor = 0.5	#FPS: Should not be impossible, only unlikely
 			NOT = { age = 18 }
 		}
 		modifier = {
@@ -4094,7 +4094,7 @@
 			}
 		}
 		modifier = {
-			factor = 0.5	#PVP: Should not be impossible, only unlikely
+			factor = 0.5	#FPS: Should not be impossible, only unlikely
 			NOT = { age = 18 }
 		}
 		modifier = {
@@ -4153,7 +4153,7 @@
 			}
 		}
 		modifier = {
-			factor = 0.5	#PVP: Should not be impossible, only unlikely
+			factor = 0.5	#FPS: Should not be impossible, only unlikely
 			NOT = { age = 18 }
 		}
 		modifier = {
@@ -4212,7 +4212,7 @@
 			}
 		}
 		modifier = {
-			factor = 0.5	#PVP: Should not be impossible, only unlikely
+			factor = 0.5	#FPS: Should not be impossible, only unlikely
 			NOT = { age = 18 }
 		}
 		modifier = {
@@ -4922,7 +4922,7 @@
 				}
 			}
 		}
-		modifier = {	#VIET+: This might need tweaking to account for differnent cultures/religions in CK2+ *NOTE+*
+		modifier = {	#FPS: This might need tweaking to account for differnent cultures/religions in CK2+ *NOTE+*
 			factor = 0
 			NOT = { religion_group = muslim }
 			is_female = yes
@@ -5053,49 +5053,133 @@
 			factor = 0
 			prisoner = yes
 		}
-		# modifier = {
-			# factor = 0
-			# in_command = yes
-			# year = 950
-			# OR = {
-				# #AND = {
-				# #	has_global_flag = EMF
-					# combat_rating = 5
-				# #}
-				# #AND = {
-				# #	NOT = { has_global_flag = EMF }
-				# #	combat_rating = 3
-				# #}
-			# }
-			# religion_group = christian
-			# OR = {	#VIET+: all western-non_Byz cultures
-				# culture_group = crusader_group
-				# culture_group = north_germanic
-				# culture_group = central_germanic
-				# culture_group = west_germanic
-				# culture_group = franco_germanic
-				# culture_group = east_germanic
-				# culture_group = latin
-				# #culture_group = east_romance
-				# culture_group = vasconic
-				# culture_group = iberian
-				# #culture_group = byzantine
-				# culture_group = celtic
-				# culture_group = finno_ugric
-				# culture_group = baltic
-				# culture_group = east_slavic
-				# culture_group = west_slavic
-				# culture_group = south_slavic
-				# culture_group = magyar
-				# AND = {
-					# culture_group = israelite
-					# NOR = {
-						# culture = sephardi
-						# culture = mizrahim
-					# }
-				# }
-			# }
-		# }
+		modifier = {
+			factor = 0
+			in_command = yes
+			year = 950
+			combat_rating = 8
+			#religion_group = christian
+			OR = {									# NOTE: Needs tweaking for CK2+ cultures
+				culture_group = north_germanic
+				culture_group = central_germanic
+				culture_group = west_germanic
+				culture_group = latin
+				AND = {
+					culture_group = iberian
+					NOT = { culture = andalusian_arabic }
+				}
+				culture_group = celtic
+				culture_group = west_slavic
+				culture_group = magyar
+				culture_group = baltic
+				AND = {
+					culture_group = south_slavic
+					NOR = {
+						culture = bulgarian
+						culture = romanian
+					}
+				}
+				culture_group = italian_group
+			}
+		}
+		modifier = {
+			factor = 0
+			in_command = yes
+			year = 950
+			combat_rating = 8
+			OR = {
+				martial = 20
+				AND = {
+					martial = 18
+					trait = mujahid
+				}
+			}
+			OR = {
+				culture_group = arabic
+				culture_group = iranian
+				AND = {
+					culture_group = east_african
+					religion_group = muslim
+				}
+				culture = andalusian_arabic
+				AND = {
+					OR = {
+						culture = turkish
+						culture = oghuz
+						culture = turkmen
+					}
+					religion_group = muslim
+				}
+				culture_group = north_african
+			}
+		}
+		modifier = {
+			factor = 0
+			in_command = yes
+			year = 950
+			combat_rating = 8
+			OR = {
+				martial = 20
+				AND = {
+					martial = 18
+					OR = {
+						trait = ukkos_shield
+						trait = peruns_chosen
+						trait = tengri_warrior
+					}
+				}
+			}
+			OR = {
+				AND = {
+					culture_group = east_slavic
+					NOT = { religion_group = christian }
+				}
+				AND = {
+					culture_group = altaic
+					NOR = {
+						culture = mongol
+						culture = khitan
+						culture = karluk
+						culture = kirghiz
+						culture = uyghur
+					}
+				}
+				culture = alan
+				culture = mordvin
+				AND = {
+					OR = {
+						culture = turkish
+						culture = oghuz
+						culture = turkmen
+					}
+					NOT = { religion_group = muslim }
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			in_command = yes
+			year = 950
+			combat_rating = 8
+			martial = 20
+			OR = {
+				AND = {
+					culture_group = byzantine
+					NOT = { culture = alan }
+				}
+				AND = {
+					culture_group = east_slavic
+					religion_group = christian
+				}
+				AND = {
+					culture_group = south_slavic
+					OR = {
+						culture = bulgarian
+						culture = romanian
+					}
+				}
+			}
+		}
 	}
 
 	1 = { # prisoner
@@ -5110,35 +5194,38 @@
 	}
 	
 	2 = { # Western knight armor #1
-		factor = 0					# Temporarily taken out, was 100 - same for following
+		factor = 1
 		modifier = {
 			factor = 0
 			in_command = no
 		}
 		modifier = {
 			factor = 0
-			NOT = {
-				religion_group = christian
-			}
-			NOR = {	#VIET+: all western-non_Byz cultures
-				culture_group = crusader_group
+			NOR = {	#FPS: all western-non_Byz cultures
 				culture_group = north_germanic
 				culture_group = central_germanic
 				culture_group = west_germanic
 				culture_group = franco_germanic
 				culture_group = east_germanic
 				culture_group = latin
-				#culture_group = east_romance
+				culture_group = italian_group
+				culture_group = island_romance
 				culture_group = vasconic
 				culture_group = iberian
-				#culture_group = byzantine
 				culture_group = celtic
 				culture_group = finno_ugric
 				culture_group = baltic
-				culture_group = east_slavic
 				culture_group = west_slavic
-				culture_group = south_slavic
-				culture_group = magyar
+				AND = {
+					culture_group = south_slavic
+					NOT = {
+						culture = bulgarian
+					}
+				}
+				AND = {
+					culture_group = magyar
+					religion_group = christian
+				}
 				AND = {
 					culture_group = israelite
 					NOR = {
@@ -5146,45 +5233,24 @@
 						culture = mizrahim
 					}
 				}
+				culture_group = crusader_group
 			}
 		}
 		modifier = {
 			factor = 0
-			NOR = {
-				#AND = {
-				#	has_global_flag = EMF
-					combat_rating = 5
-				#}
-				#AND = {
-				#	NOT = { has_global_flag = EMF }
-				#	combat_rating = 3
-				#}
+			NOT = {
+				combat_rating = 8
 			}
 		}
 		modifier = {
 			factor = 0
-			#OR = {
+			OR = {
+				combat_rating = 10
 				AND = {
-					#has_global_flag = EMF
-					OR = {
-						combat_rating = 7
-						AND = {
-							combat_rating = 5
-							trait = brilliant_strategist
-						}
-					}
+					combat_rating = 8
+					trait = brilliant_strategist
 				}
-				#AND = {
-					#NOT = { has_global_flag = EMF }
-					#OR = {
-						#combat_rating = 4
-						#AND = {
-							#combat_rating = 3
-							#trait = brilliant_strategist
-						#}
-					#}
-				#}
-			#}
+			}
 		}
 		modifier = {
 			factor = 0
@@ -5202,6 +5268,12 @@
 			factor = 0
 			prisoner = yes
 		}
+		hide_layers = {
+			1 = { always = yes }
+			3 = { always = yes }
+			4 = { always = yes }
+			5 = { always = yes }
+		}
 	}
 	
 	3 = { # Western knight armor #2
@@ -5215,7 +5287,7 @@
 			NOT = {
 				religion_group = christian
 			}
-			NOR = {	#VIET+: all western-non_Byz cultures
+			NOR = {	#FPS: all western-non_Byz cultures
 				culture_group = crusader_group
 				culture_group = north_germanic
 				culture_group = central_germanic
@@ -5310,7 +5382,7 @@
 			NOT = {
 				religion_group = christian
 			}
-			NOR = {	#VIET+: all western-non_Byz cultures
+			NOR = {	#FPS: all western-non_Byz cultures
 				culture_group = crusader_group
 				culture_group = north_germanic
 				culture_group = central_germanic
@@ -5392,7 +5464,7 @@
 			NOT = {
 				religion_group = christian
 			}
-			NOR = {	#VIET+: all western-non_Byz cultures
+			NOR = {	#FPS: all western-non_Byz cultures
 				culture_group = crusader_group
 				culture_group = north_germanic
 				culture_group = central_germanic
@@ -5471,27 +5543,28 @@
 		}
 		modifier = {
 			factor = 0
-			NOT = {
-				religion_group = christian
-			}
-			NOR = {	#VIET+: all western-non_Byz cultures
-				culture_group = crusader_group
+			NOR = {	#FPS: all western-non_Byz cultures
 				culture_group = north_germanic
 				culture_group = central_germanic
 				culture_group = west_germanic
 				culture_group = franco_germanic
 				culture_group = east_germanic
 				culture_group = latin
-				#culture_group = east_romance
+				culture_group = italian_group
+				culture_group = island_romance
 				culture_group = vasconic
 				culture_group = iberian
-				#culture_group = byzantine
 				culture_group = celtic
 				culture_group = finno_ugric
 				culture_group = baltic
 				culture_group = east_slavic
 				culture_group = west_slavic
-				culture_group = south_slavic
+				AND = {
+					culture_group = south_slavic
+					NOT = {
+						culture = bulgarian
+					}
+				}
 				culture_group = magyar
 				AND = {
 					culture_group = israelite
@@ -5500,6 +5573,7 @@
 						culture = mizrahim
 					}
 				}
+				culture_group = crusader_group
 			}
 		}
 		modifier = {
@@ -5565,7 +5639,7 @@
 			NOT = {
 				religion_group = christian
 			}
-			NOR = {	#VIET+: all western-non_Byz cultures
+			NOR = {	#FPS: all western-non_Byz cultures
 				culture_group = crusader_group
 				culture_group = north_germanic
 				culture_group = central_germanic
@@ -5647,7 +5721,7 @@
 			NOT = {
 				religion_group = christian
 			}
-			NOR = {	#VIET+: all western-non_Byz cultures
+			NOR = {	#FPS: all western-non_Byz cultures
 				culture_group = crusader_group
 				culture_group = north_germanic
 				culture_group = central_germanic
@@ -5719,7 +5793,57 @@
 	}
 	
 	9 = { # Muslim armor #1
-		factor = 0
+		factor = 1
+		modifier = {
+			factor = 0
+			in_command = no
+		}
+		modifier = {
+			factor = 0
+			NOR = {	#FPS: all "Muslim" cultures
+				culture_group = arabic
+				culture_group = iranian
+				culture_group = maghrebi
+				AND = {
+					OR = {
+						culture_group = east_african
+						culture_group = amazigh
+						culture = turkish
+					}
+					religion_group = muslim
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				combat_rating = 8
+			}
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				martial = 20
+				AND = {
+					martial = 18
+					trait = mujahid
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = { year = 950 }
+		}
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}
+		hide_layers = {
+			1 = { always = yes }
+			3 = { always = yes }
+			4 = { always = yes }
+			5 = { always = yes }
+		}
 	}
 	
 	10 = { # Muslim armor #2
@@ -5739,7 +5863,74 @@
 	}
 	
 	14 = { # Steppe armor #1
-		factor = 0
+		factor = 1
+		modifier = {
+			factor = 0
+			in_command = no
+		}
+		modifier = {
+			factor = 0
+			NOR = {	#FPS: all "Steppe" cultures
+				AND = {
+					culture_group = east_slavic
+					NOT = { religion_group = christian }
+				}
+				AND = {
+					culture_group = altaic
+					NOR = {
+						culture = mongol
+						culture = khitan
+						culture = karluk
+						culture = kirghiz
+						culture = uyghur
+					}
+				}
+				culture = alan
+				culture = mordvin
+				AND = {
+					culture = turkish
+					NOT = { religion_group = muslim }
+				}
+				AND = {
+					culture_group = magyar
+					NOT = { religion_group = christian }
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				combat_rating = 8
+			}
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				martial = 20
+				AND = {
+					martial = 18
+					OR = {
+						trait = ukkos_shield
+						trait = peruns_chosen
+						trait = tengri_warrior
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = { year = 950 }
+		}
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}
+		hide_layers = {
+			1 = { always = yes }
+			3 = { always = yes }
+			4 = { always = yes }
+			5 = { always = yes }
+		}
 	}
 	
 	15 = { # Steppe armor #2
@@ -5752,6 +5943,175 @@
 	
 	17 = { # Steppe armor #4
 		factor = 0
+	}
+	
+	18 = { # Byzantine armor #1
+		factor = 1
+		modifier = {
+			factor = 0
+			in_command = no
+		}
+		modifier = {
+			factor = 0
+			NOR = {	#FPS: all "Byzantine" cultures
+				AND = {
+					culture_group = byzantine
+					NOT = { culture = alan }
+				}
+				AND = {
+					culture_group = east_slavic
+					religion_group = christian
+				}
+				culture = bulgarian
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				combat_rating = 8
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				martial = 20
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = { year = 950 }
+		}
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}
+		hide_layers = {
+			1 = { always = yes }
+			3 = { always = yes }
+			4 = { always = yes }
+			5 = { always = yes }
+		}
+	}
+	
+	19 = { # Byzantine armor #2
+		factor = 1
+		modifier = {
+			factor = 0
+			in_command = no
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				AND = {
+					culture_group = byzantine
+					NOT = { culture = alan }
+				}
+				AND = {
+					culture_group = east_slavic
+					religion_group = christian
+				}
+				AND = {
+					culture_group = south_slavic
+					OR = {
+						culture = bulgarian
+						culture = romanian
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				AND = {
+					has_global_flag = EMF
+					combat_rating = 8
+				}
+				AND = {
+					NOT = { has_global_flag = EMF }
+					combat_rating = 3
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				martial = 20
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = { year = 950 }
+		}
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}
+		hide_layers = {
+			1 = { always = yes }
+			3 = { always = yes }
+			4 = { always = yes }
+			5 = { always = yes }
+		}
+	}
+	20 = { # Byzantine armor #3
+		factor = 1
+		modifier = {
+			factor = 0
+			in_command = no
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				AND = {
+					culture_group = byzantine
+					NOT = { culture = alan }
+				}
+				AND = {
+					culture_group = east_slavic
+					religion_group = christian
+				}
+				AND = {
+					culture_group = south_slavic
+					OR = {
+						culture = bulgarian
+						culture = romanian
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				AND = {
+					has_global_flag = EMF
+					combat_rating = 8
+				}
+				AND = {
+					NOT = { has_global_flag = EMF }
+					combat_rating = 3
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = {
+				martial = 20
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = { year = 950 }
+		}
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}
+		hide_layers = {
+			1 = { always = yes }
+			3 = { always = yes }
+			4 = { always = yes }
+			5 = { always = yes }
+		}
 	}
 }
 
@@ -5785,7 +6145,7 @@
    	}
 
 	1 = { # scar 1
-		factor = 25
+		factor = 1
 		modifier = {
 			factor = 0
 			NOR = {
@@ -5806,7 +6166,7 @@
    	}
 
 	2 = { # scar 2
-		factor = 25
+		factor = 1
 		modifier = {
 			factor = 0
 			NOR = {
@@ -5827,7 +6187,7 @@
    	}
 
 	3 = { # scar 3
-		factor = 25
+		factor = 1
 		modifier = {
 			factor = 0
 			NOR = {
@@ -5848,7 +6208,7 @@
    	}
 
 	4 = { # scar 4
-		factor = 25
+		factor = 1
 		modifier = {
 			factor = 0
 			NOR = {
@@ -6311,7 +6671,6 @@
 	}
 }
 
-
 # p11 player
 11 = {
 	0 = { # blank
@@ -6323,69 +6682,8 @@
 				multiplayer = yes
 			}
 		}
-		modifier = {
-			factor = 0
-			trait = nun
-			NOR = {
-				in_command = yes
-				prisoner = yes
-			}
-		}
-		modifier = {	#PVP: WARNING! Must be a perfect match with KnightHelmets!
-			factor = 0
-			has_character_flag = cardinal
-			NOR = {
-				has_landed_title = k_papal_state
-				has_landed_title = d_fraticelli
-			}
-			NOR = {
-				AND = {
-					in_command = yes
-					year = 950
-					OR = {
-						#AND = {
-							#has_global_flag = EMF
-							combat_rating = 5
-						#}
-						#AND = {
-							#NOT = { has_global_flag = EMF }
-							#combat_rating = 3
-						#}
-					}
-					religion_group = christian
-					OR = {	#VIET+: all western cultures
-						culture_group = crusader_group
-						culture_group = north_germanic
-						culture_group = central_germanic
-						culture_group = west_germanic
-						culture_group = franco_germanic
-						culture_group = east_germanic
-						culture_group = latin
-						culture_group = east_romance
-						culture_group = vasconic
-						culture_group = iberian
-						culture_group = byzantine
-						culture_group = celtic
-						culture_group = finno_ugric
-						culture_group = baltic
-						culture_group = east_slavic
-						culture_group = west_slavic
-						culture_group = south_slavic
-						culture_group = magyar
-						AND = {
-							culture_group = israelite
-							NOR = {
-								culture = sephardi
-								culture = mizrahim
-							}
-						}
-					}
-				}
-				prisoner = yes
-			}
-		}
 	}
-
+	
 	1 = { # player
 		factor = 100
 		modifier = {
@@ -6394,88 +6692,6 @@
 				ai = yes
 				multiplayer = no
 			}
-		}
-	}
-	
-	2 = { # nun
-		factor = 100
-		modifier = {
-			factor = 0
-			NOT = {
-				trait = nun
-			}
-		}
-		modifier = {
-			factor = 0
-			in_command = yes
-		}
-		modifier = {
-			factor = 0
-			prisoner = yes
-		}
-	}
-	
-	3 = { # cardinal
-		factor = 100	#VIET+: *NOTE* Will need adjustment to account for Chalcedonian Christianity
-		modifier = {
-			factor = 0
-			NOT = {
-				has_character_flag = cardinal
-			}
-		}
-		modifier = {
-			factor = 0
-			OR = {
-				has_landed_title = k_papal_state
-				has_landed_title = d_fraticelli
-			}
-		}
-		modifier = {	#PVP: WARNING! Must be a perfect match with KnightHelmets!
-			factor = 0
-			in_command = yes
-			year = 950
-			OR = {
-				#AND = {
-					#has_global_flag = EMF
-					combat_rating = 5
-				#}
-				#AND = {
-					#NOT = { has_global_flag = EMF }
-					#combat_rating = 3
-				#}
-			}
-			religion_group = christian
-			OR = {	#VIET+: all western cultures
-				culture_group = crusader_group
-				culture_group = north_germanic
-				culture_group = central_germanic
-				culture_group = west_germanic
-				culture_group = franco_germanic
-				culture_group = east_germanic
-				culture_group = latin
-				culture_group = east_romance
-				culture_group = vasconic
-				culture_group = iberian
-				culture_group = byzantine
-				culture_group = celtic
-				culture_group = finno_ugric
-				culture_group = baltic
-				culture_group = east_slavic
-				culture_group = west_slavic
-				culture_group = south_slavic
-				culture_group = magyar
-				AND = {
-					culture_group = israelite
-					NOR = {
-						culture = sephardi
-						culture = mizrahim
-					}
-				}
-			}
-		}
-		modifier = {
-			factor = 0
-			prisoner = yes
 		}
 	}
 }
@@ -6554,7 +6770,7 @@
 			factor = 0
 			OR = {
 				culture = manden
-				culture = berber
+				culture_group = maghrebi
 			}
 		}
 	}
@@ -6787,7 +7003,7 @@
 			factor = 0
 			OR = {
 				culture = manden
-				culture = berber
+				culture_group = maghrebi
 			}
 		}
 	}
@@ -6829,7 +7045,7 @@
 				trait = ambitious
 				trait = envious
 				culture = manden
-				culture = berber
+				culture_group = maghrebi
 			}
 			NOT = { has_character_modifier = golden_mask }
 		}
@@ -7163,5 +7379,96 @@
 			factor = 0
 			trait = blinded
 		}
+	}
+}
+
+# p14 chinese makeup
+14 = {
+	0 = { # blank
+		factor = 100
+		modifier = {
+			factor = 0
+			chinese_makeup_trigger = yes
+		}
+	}
+
+	1 = { # white powder
+		factor = 1
+	}
+	
+	2 = { # rouge a only
+		factor = 1
+	}
+	
+	3 = { # white powder and rouge a
+		factor = 1
+	}
+	
+	4 = { # rouge b only
+		factor = 1
+	}
+
+	5 = { # white powder and rouge b
+		factor = 1
+	}
+}
+
+# p15 chinese makeup 2
+15 = {
+	0 = { # blank
+		factor = 100
+		modifier = {
+			factor = 0
+			chinese_makeup_trigger = yes
+		}
+	}
+
+	1 = { # full lips
+		factor = 1
+	}
+	
+	2 = { # top lip
+		factor = 1
+	}
+	
+	3 = { # 'heart' lips
+		factor = 1
+	}
+}
+
+# p16 chinese empress jewelry
+16 = {
+	0 = { # blank
+		factor = 100
+		modifier = {
+			factor = 0
+			chinese_empress_jewelry_trigger = yes
+		}
+	}
+
+	1 = { # Full face pearls and earrings
+		factor = 1
+	}
+	
+	2 = { # pearl earrings only
+		factor = 1
+	}
+	
+	3 = { # full face pearls and earrings 2
+		factor = 1
+	}
+}
+
+# p17 immortality
+17 = {
+	0 = { # blank
+		factor = 100
+		modifier = {
+			factor = 0
+			immortal = yes
+		}
+	}
+	1 = {
+		factor = 100
 	}
 }
