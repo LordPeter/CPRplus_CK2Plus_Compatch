@@ -2888,11 +2888,6 @@
 			OR = {
 				trait = peasant_leader
 				trait = heresiarch
-				trait = monk
-				trait = nun
-				trait = desert_mother
-				trait = desert_father
-				trait = perfecti
 			}
 		}
 		modifier = {
@@ -2902,6 +2897,7 @@
 			NOT = { spouse = { real_tier = emperor } }
 			NOT = { spouse = { real_tier = king } }
 			NOT = { has_minor_title = title_prince }
+			NOT = { is_offmap_tag_including_dead = offmap_china }
 		}
 		modifier = {
 			factor = 0
@@ -2918,6 +2914,7 @@
 					}
 				}
 			}
+			NOT = { is_offmap_tag_including_dead = offmap_china }
 		}
 	}
 	
@@ -2932,12 +2929,8 @@
 			OR = {
 				trait = peasant_leader
 				trait = heresiarch
-				trait = monk
-				trait = nun
-				trait = desert_mother
-				trait = desert_father
-				trait = perfecti
 			}
+			NOT = { is_offmap_tag_including_dead = offmap_china }
 		}
 		modifier = {
 			factor = 0
@@ -2946,6 +2939,7 @@
 			NOT = { spouse = { real_tier = emperor } }
 			NOT = { spouse = { real_tier = king } }
 			NOT = { has_minor_title = title_prince }
+			NOT = { is_offmap_tag_including_dead = offmap_china }
 		}
 		modifier = {
 			factor = 0
@@ -2962,6 +2956,7 @@
 					}
 				}
 			}
+			NOT = { is_offmap_tag_including_dead = offmap_china }
 		}
 	}
 	
@@ -2976,12 +2971,8 @@
 			OR = {
 				trait = peasant_leader
 				trait = heresiarch
-				trait = monk
-				trait = nun
-				trait = desert_mother
-				trait = desert_father
-				trait = perfecti
 			}
+			NOT = { is_offmap_tag_including_dead = offmap_china }
 		}
 		modifier = {
 			factor = 0
@@ -2990,6 +2981,7 @@
 			NOT = { spouse = { real_tier = emperor } }
 			NOT = { spouse = { real_tier = king } }
 			NOT = { has_minor_title = title_prince }
+			NOT = { is_offmap_tag_including_dead = offmap_china }
 		}
 		modifier = {
 			factor = 0
@@ -3006,6 +2998,7 @@
 					}
 				}
 			}
+			NOT = { is_offmap_tag_including_dead = offmap_china }
 		}
 	}
 	
@@ -3020,11 +3013,6 @@
 			OR = {
 				trait = peasant_leader
 				trait = heresiarch
-				trait = monk
-				trait = nun
-				trait = desert_mother
-				trait = desert_father
-				trait = perfecti
 			}
 		}
 		modifier = {
@@ -3047,11 +3035,19 @@
 			OR = {
 				AND = {
 					is_nomadic = no
-					real_tier = king
+					higher_real_tier_than = duke
+				}
+				AND = {
+					is_nomadic = yes
+					real_tier = emperor
 				}
 				spouse = {
 					is_nomadic = no
-					real_tier = king
+					higher_real_tier_than = duke
+				}
+				spouse = {
+					is_nomadic = yes
+					real_tier = emperor
 				}
 			}
 		}
@@ -3068,11 +3064,6 @@
 			OR = {
 				trait = peasant_leader
 				trait = heresiarch
-				trait = monk
-				trait = nun
-				trait = desert_mother
-				trait = desert_father
-				trait = perfecti
 			}
 		}
 		modifier = {
@@ -3095,11 +3086,19 @@
 			OR = {
 				AND = {
 					is_nomadic = no
-					real_tier = king
+					higher_real_tier_than = duke
+				}
+				AND = {
+					is_nomadic = yes
+					real_tier = emperor
 				}
 				spouse = {
 					is_nomadic = no
-					real_tier = king
+					higher_real_tier_than = duke
+				}
+				spouse = {
+					is_nomadic = yes
+					real_tier = emperor
 				}
 			}
 		}
@@ -3116,11 +3115,6 @@
 			OR = {
 				trait = peasant_leader
 				trait = heresiarch
-				trait = monk
-				trait = nun
-				trait = desert_mother
-				trait = desert_father
-				trait = perfecti
 			}
 		}
 		modifier = {
@@ -3143,11 +3137,19 @@
 			OR = {
 				AND = {
 					is_nomadic = no
-					real_tier = king
+					higher_real_tier_than = duke
+				}
+				AND = {
+					is_nomadic = yes
+					real_tier = emperor
 				}
 				spouse = {
 					is_nomadic = no
-					real_tier = king
+					higher_real_tier_than = duke
+				}
+				spouse = {
+					is_nomadic = yes
+					real_tier = emperor
 				}
 			}
 		}
@@ -3157,21 +3159,15 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			NOR = {
-				trait = in_hiding
-				trait = peasant_leader
-				trait = heresiarch
-				trait = monk
-				trait = nun
-				trait = desert_mother
-				trait = desert_father
-				trait = perfecti
-			}
+			NOT = { trait = in_hiding }
+			NOT = { trait = peasant_leader }
+			NOT = { trait = heresiarch }
 			OR = {
 				higher_real_tier_than = baron
 				spouse = { higher_real_tier_than = baron }
 				has_job_title = job_chancellor
 				has_minor_title = title_prince
+				is_offmap_tag_including_dead = offmap_china
 			}
 		}
 	}
@@ -3180,17 +3176,11 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			NOR = {
-				trait = in_hiding
-				trait = peasant_leader
-				trait = heresiarch
-				trait = monk
-				trait = nun
-				trait = desert_mother
-				trait = desert_father
-				trait = perfecti
-			}
+			NOT = { trait = in_hiding }
+			NOT = { trait = peasant_leader }
+			NOT = { trait = heresiarch }
 			OR = {
+				is_or_was_offmap_power_ruler = yes
 				higher_real_tier_than = baron
 				spouse = { higher_real_tier_than = baron }
 				has_job_title = job_chancellor
@@ -3203,17 +3193,11 @@
 		factor = 1
 		modifier = {
 			factor = 0
-			NOR = {
-				trait = in_hiding
-				trait = peasant_leader
-				trait = heresiarch
-				trait = monk
-				trait = nun
-				trait = desert_mother
-				trait = desert_father
-				trait = perfecti
-			}
+			NOT = { trait = in_hiding }
+			NOT = { trait = peasant_leader }
+			NOT = { trait = heresiarch }
 			OR = {
+				is_or_was_offmap_power_ruler = yes
 				higher_real_tier_than = baron
 				spouse = { higher_real_tier_than = baron }
 				has_job_title = job_chancellor
@@ -3239,6 +3223,10 @@
 		}
 		modifier = {
 			factor = 0
+			prisoner = yes
+		}
+		modifier = {
+			factor = 0
 			in_command = yes
 		}
 	}
@@ -3256,14 +3244,15 @@
 		}
 		modifier = {
 			factor = 0
+			in_command = no
 			NOT = { trait = shieldmaiden }
 			NOT = { has_job_title  = job_marshal }
-			in_command = no
 			NOT = {
 				primary_title = {
 					OR = {
 						mercenary = yes
 						holy_order = yes
+						title = e_china_west_governor
 					}
 				}
 			}
@@ -3275,6 +3264,16 @@
 				spouse = { higher_real_tier_than = duke }
 			}
 			in_command = no
+			NOT = { primary_title = { title = e_china_west_governor } }
+		}
+		modifier = {
+			factor = 0
+			primary_title = { title = e_china_west_governor }
+			OR = {
+				culture_group = chinese_group
+				culture = khitan
+				culture = jurchen
+			}
 		}
 		modifier = {
 			factor = 0
@@ -3290,6 +3289,21 @@
 				siege = { is_attacker = yes }
 				has_job_title  = job_marshal
 			}
+		}
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				chinese_martial_modifier_trigger = yes
+				chinese_generals_modifier_trigger = yes
+			}
+		}
+		modifier = {
+			factor = 100 # This ensures that the reverse order check stays matched
+			has_portrait_property = { layer = 5 index = 10 }
 		}
 	}
 	
@@ -3316,6 +3330,57 @@
 					}
 				}
 			}
+		}
+	}
+	
+	# Chinese Martial Extension 1
+	12 = {
+		factor = 99
+		modifier = {
+			factor = 0
+			chinese_generals_modifier_trigger = no
+		}
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}
+		modifier = {
+			factor = 100 # This ensures that the reverse order check stays matched
+			has_portrait_property = { layer = 5 index = 12 }
+		}
+	}
+	
+	# Chinese Martial Extension 2
+	13 = {
+		factor = 99
+		modifier = {
+			factor = 0
+			chinese_martial_modifier_trigger = no
+		}
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}
+		modifier = {
+			factor = 100 # This ensures that the reverse order check stays matched
+			has_portrait_property = { layer = 5 index = 13 }
+		}
+	}
+	
+	# Chinese Martial Extension 3
+	14 = {
+		factor = 99
+		modifier = {
+			factor = 0
+			chinese_generals_modifier_trigger = no
+		}
+		modifier = {
+			factor = 0
+			prisoner = yes
+		}
+		modifier = {
+			factor = 100 # This ensures that the reverse order check stays matched
+			has_portrait_property = { layer = 5 index = 14 }
 		}
 	}
 }
@@ -3345,7 +3410,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			NOT = { trait = leper }
 		}
@@ -3371,7 +3435,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			trait = bad_priest_christian
 		}
@@ -3389,7 +3452,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			NOR = {
 				has_nickname = nick_the_pious
@@ -3398,6 +3460,10 @@
 				has_nickname = nick_the_confessor
 				has_nickname = nick_the_monk
 			}
+		}
+		modifier = {
+			factor = 100
+			is_devout_chinese_buddhist_trigger = yes
 		}
 	}
 	1 = { #Light beard
@@ -3415,7 +3481,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			NOT = { trait = bad_priest_christian }
 		}
@@ -3432,7 +3497,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			OR = {
 				has_nickname = nick_the_pious
@@ -3466,7 +3530,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			NOT = { trait = bad_priest_christian }
 		}
@@ -3483,7 +3546,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			OR = {
 				has_nickname = nick_the_pious
@@ -3517,7 +3579,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			NOT = { trait = bad_priest_christian }
 		}
@@ -3534,7 +3595,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			OR = {
 				has_nickname = nick_the_pious
@@ -3568,7 +3628,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			NOT = { trait = bad_priest_christian }
 		}
@@ -3585,7 +3644,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			OR = {
 				has_nickname = nick_the_pious
@@ -3618,7 +3676,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			NOT = { trait = bad_priest_christian }
 		}
@@ -3635,7 +3692,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			OR = {
 				has_nickname = nick_the_pious
@@ -3669,7 +3725,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			NOT = { trait = bad_priest_christian }
 		}
@@ -3686,7 +3741,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			OR = {
 				has_nickname = nick_the_pious
@@ -3720,7 +3774,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			NOT = { trait = bad_priest_christian }
 		}
@@ -3737,7 +3790,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			OR = {
 				has_nickname = nick_the_pious
@@ -3753,6 +3805,7 @@
 		}
 		modifier = {
 			factor = 0
+			age = 18
 			OR = {
 				graphical_culture = maghrebgfx
 				graphical_culture = berbergfx
@@ -3780,7 +3833,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			NOT = { trait = bad_priest_christian }
 		}
@@ -3797,7 +3849,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			OR = {
 				has_nickname = nick_the_pious
@@ -3813,6 +3864,7 @@
 		}
 		modifier = {
 			factor = 0
+			age = 18
 			OR = {
 				graphical_culture = maghrebgfx
 				graphical_culture = berbergfx
@@ -3840,7 +3892,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			NOT = { trait = bad_priest_christian }
 		}
@@ -3857,7 +3908,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			OR = {
 				has_nickname = nick_the_pious
@@ -3873,6 +3923,7 @@
 		}
 		modifier = {
 			factor = 0
+			age = 18
 			OR = {
 				graphical_culture = maghrebgfx
 				graphical_culture = berbergfx
@@ -3900,7 +3951,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			NOT = { trait = bad_priest_christian }
 		}
@@ -3917,7 +3967,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			OR = {
 				has_nickname = nick_the_pious
@@ -3960,7 +4009,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			NOT = { trait = bad_priest_christian }
 		}
@@ -3977,7 +4025,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			OR = {
 				has_nickname = nick_the_pious
@@ -3993,6 +4040,7 @@
 		}
 		modifier = {
 			factor = 0
+			age = 18
 			OR = {
 				graphical_culture = maghrebgfx
 				graphical_culture = berbergfx
@@ -4020,7 +4068,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			NOT = { trait = bad_priest_christian }
 		}
@@ -4037,7 +4084,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			OR = {
 				has_nickname = nick_the_pious
@@ -4053,6 +4099,7 @@
 		}
 		modifier = {
 			factor = 0
+			age = 18
 			OR = {
 				graphical_culture = maghrebgfx
 				graphical_culture = berbergfx
@@ -4080,7 +4127,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			NOT = { trait = bad_priest_christian }
 		}
@@ -4097,7 +4143,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			OR = {
 				has_nickname = nick_the_pious
@@ -4113,6 +4158,7 @@
 		}
 		modifier = {
 			factor = 0
+			age = 18
 			OR = {
 				graphical_culture = maghrebgfx
 				graphical_culture = berbergfx
@@ -4140,7 +4186,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			NOT = { trait = bad_priest_christian }
 		}
@@ -4157,7 +4202,6 @@
 					is_landed = yes
 				}
 				has_job_title = job_spiritual
-				trait = monk
 			}
 			OR = {
 				has_nickname = nick_the_pious
@@ -4173,6 +4217,7 @@
 		}
 		modifier = {
 			factor = 0
+			age = 18
 			OR = {
 				graphical_culture = maghrebgfx
 				graphical_culture = berbergfx
@@ -4196,6 +4241,7 @@
 			factor = 0
 			NOT = { real_tier = emperor }
 			NOT = { spouse = { real_tier = emperor } }
+			NOT = { is_offmap_tag_including_dead = offmap_china }
 		}
 		modifier = {	# *NOTE* *WARN*: Is this properly implemented? I mean, doesn't it disallow this headgear in case the person is just the husband/wife, because it will render true even if the following one renders false?!
 			factor = 0
@@ -4205,7 +4251,7 @@
 				has_landed_title = e_mongol_empire
 				has_landed_title = e_golden_horde
 				has_landed_title = e_il-khanate
-				num_of_king_titles = 4		#*NOTE*: This even possible? For a nomad, I mean...
+				#num_of_king_titles = 4		#*NOTE*: This even possible? For a nomad, I mean...
 				primary_title = {
 					real_tier = emperor
 					is_titular = no
@@ -4222,7 +4268,6 @@
 					has_landed_title = e_mongol_empire
 					has_landed_title = e_golden_horde
 					has_landed_title = e_il-khanate
-					num_of_king_titles = 4
 					primary_title = {
 						real_tier = emperor
 						is_titular = no
@@ -4233,23 +4278,27 @@
 		}
 		modifier = {
 			factor = 0
-			prisoner = yes
+			trait = in_hiding
 		}
 		modifier = {
 			factor = 0
 			OR = {
 				trait = peasant_leader
 				trait = heresiarch
-				trait = monk
-				trait = nun
-				trait = desert_mother
-				trait = desert_father
-				trait = perfecti
 			}
+			NOT = { is_offmap_tag_including_dead = offmap_china }
+		}
+		modifier = {
+			factor = 100
+			is_or_was_offmap_power_ruler = yes
 		}
 		modifier = {
 			factor = 0
-			trait = in_hiding
+			song_dynasty_futou_trigger = yes
+		}
+		modifier = {
+			factor = 0
+			primary_title = { title = e_china_west_governor } # Uses martial clothing instead
 		}
 	}
 	
@@ -4279,10 +4328,6 @@
 				has_landed_title = e_mongol_empire
 				has_landed_title = e_golden_horde
 				has_landed_title = e_il-khanate
-				AND = {
-					num_of_emperor_titles = 1
-					num_of_king_titles = 4
-				}
 				primary_title = {
 					real_tier = emperor
 					is_titular = no
@@ -4299,10 +4344,6 @@
 					has_landed_title = e_mongol_empire
 					has_landed_title = e_golden_horde
 					has_landed_title = e_il-khanate
-					AND = {
-						num_of_emperor_titles = 1
-						num_of_king_titles = 4
-					}
 					primary_title = {
 						real_tier = emperor
 						is_titular = no
@@ -4319,7 +4360,18 @@
 				NOT = { real_tier = emperor }
 			}
 		}
-		modifier = {	#*NOTE*: This is doubled, from above...
+		modifier = {
+			factor = 0
+			trait = in_hiding
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				trait = peasant_leader
+				trait = heresiarch
+			}
+		}
+		modifier = {
 			factor = 0
 			OR = {
 				AND = {
@@ -4333,10 +4385,6 @@
 						has_landed_title = e_mongol_empire
 						has_landed_title = e_golden_horde
 						has_landed_title = e_il-khanate
-						AND = {
-							num_of_emperor_titles = 1
-							num_of_king_titles = 4
-						}
 						primary_title = {
 							real_tier = emperor
 							is_titular = no
@@ -4345,26 +4393,6 @@
 					}
 				}
 			}
-		}
-		modifier = {
-			factor = 0
-			prisoner = yes
-		}
-		modifier = {
-			factor = 0
-			OR = {
-				trait = peasant_leader
-				trait = heresiarch
-				trait = monk
-				trait = nun
-				trait = desert_mother
-				trait = desert_father
-				trait = perfecti
-			}
-		}
-		modifier = {
-			factor = 0
-			trait = in_hiding
 		}
 	}
 
@@ -4394,10 +4422,6 @@
 				has_landed_title = e_mongol_empire
 				has_landed_title = e_golden_horde
 				has_landed_title = e_il-khanate
-				AND = {
-					num_of_emperor_titles = 1
-					num_of_king_titles = 4
-				}
 				primary_title = {
 					real_tier = emperor
 					is_titular = no
@@ -4414,10 +4438,6 @@
 					has_landed_title = e_mongol_empire
 					has_landed_title = e_golden_horde
 					has_landed_title = e_il-khanate
-					AND = {
-						num_of_emperor_titles = 1
-						num_of_king_titles = 4
-					}
 					primary_title = {
 						real_tier = emperor
 						is_titular = no
@@ -4436,6 +4456,17 @@
 		}
 		modifier = {
 			factor = 0
+			trait = in_hiding
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				trait = peasant_leader
+				trait = heresiarch
+			}
+		}
+		modifier = {
+			factor = 0
 			OR = {
 				AND = {
 					real_tier = emperor
@@ -4448,10 +4479,6 @@
 						has_landed_title = e_mongol_empire
 						has_landed_title = e_golden_horde
 						has_landed_title = e_il-khanate
-						AND = {
-							num_of_emperor_titles = 1
-							num_of_king_titles = 4
-						}
 						primary_title = {
 							real_tier = emperor
 							is_titular = no
@@ -4460,26 +4487,6 @@
 					}
 				}
 			}
-		}
-		modifier = {
-			factor = 0
-			prisoner = yes
-		}
-		modifier = {
-			factor = 0
-			OR = {
-				trait = peasant_leader
-				trait = heresiarch
-				trait = monk
-				trait = nun
-				trait = desert_mother
-				trait = desert_father
-				trait = perfecti
-			}
-		}
-		modifier = {
-			factor = 0
-			trait = in_hiding
 		}
 	}
 
@@ -4501,6 +4508,7 @@
 					NOT = { spouse = { real_tier = emperor } }
 				}
 			}
+			NOT = { song_dynasty_futou_trigger = yes }
 		}
 		modifier = {
 			factor = 0
@@ -4509,16 +4517,13 @@
 				has_landed_title = e_mongol_empire
 				has_landed_title = e_golden_horde
 				has_landed_title = e_il-khanate
-				AND = {
-					num_of_emperor_titles = 1
-					num_of_king_titles = 4
-				}
 				primary_title = {
 					real_tier = emperor
 					is_titular = no
 				}
 				population_and_manpower = 60000
 			}
+			NOT = { song_dynasty_futou_trigger = yes }	#NOTE: Missing in normal CPRplus, inform
 		}
 		modifier = {
 			factor = 0
@@ -4529,11 +4534,6 @@
 					has_landed_title = e_mongol_empire
 					has_landed_title = e_golden_horde
 					has_landed_title = e_il-khanate
-					has_landed_title = e_tartaria
-					AND = {
-						num_of_emperor_titles = 1
-						num_of_king_titles = 4
-					}
 					primary_title = {
 						real_tier = emperor
 						is_titular = no
@@ -4541,6 +4541,7 @@
 					population_and_manpower = 60000
 				}
 			}
+			NOT = { song_dynasty_futou_trigger = yes }
 		}
 		modifier = {
 			factor = 0
@@ -4549,6 +4550,23 @@
 				is_nomadic = yes
 				NOT = { real_tier = emperor }
 			}
+			NOT = { song_dynasty_futou_trigger = yes }
+		}
+		modifier = {
+			factor = 0
+			trait = in_hiding
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				trait = peasant_leader
+				trait = heresiarch
+			}
+			NOT = { song_dynasty_futou_trigger = yes }
+		}
+		modifier = {
+			factor = 100
+			song_dynasty_futou_trigger = yes
 		}
 		modifier = {
 			factor = 0
@@ -4556,6 +4574,7 @@
 				AND = {
 					real_tier = emperor
 					is_nomadic = no
+					NOT = { song_dynasty_futou_trigger = yes }
 				}
 				AND = {
 					real_tier = emperor
@@ -4564,10 +4583,6 @@
 						has_landed_title = e_mongol_empire
 						has_landed_title = e_golden_horde
 						has_landed_title = e_il-khanate
-						AND = {
-							num_of_emperor_titles = 1
-							num_of_king_titles = 4
-						}
 						primary_title = {
 							real_tier = emperor
 							is_titular = no
@@ -4576,26 +4591,6 @@
 					}
 				}
 			}
-		}
-		modifier = {
-			factor = 0
-			prisoner = yes
-		}
-		modifier = {
-			factor = 0
-			OR = {
-				trait = peasant_leader
-				trait = heresiarch
-				trait = monk
-				trait = nun
-				trait = desert_mother
-				trait = desert_father
-				trait = perfecti
-			}
-		}
-		modifier = {
-			factor = 0
-			trait = in_hiding
 		}
 	}
 
