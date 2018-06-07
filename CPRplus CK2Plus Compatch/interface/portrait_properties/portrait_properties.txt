@@ -1,84 +1,9 @@
 # The choice is made based on a weighted random, but the first factor that evaluates to >= 100 will be automatically chosen
 
 # p0 background
-0 = {						# Now almost completely independent from CPR+
+0 = {					# NOTE: IMPORTANT: Background stuff mostly copied from CPRplus, little adjustments done for CK2+ (only for saint)
 	0 = { # castle 1
 		factor = 1
-		#FPS: major restrictions to the background
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building (only when besieged)
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					in_command = yes
-					NOT = {
-						siege = {
-							is_attacker = no
-						}
-					}
-				}
-			}
-		}
-		modifier = {	#FPS: Geographic/Religion/Culture allowed
-			factor = 0
-			location = {	#FPS: Western architecture
-				NOR = {
-					region = world_europe
-					religion_group = christian
-					OR = {	#FPS: all western cultures
-						culture_group = crusader_group
-						culture_group = north_germanic
-						culture_group = central_germanic
-						culture_group = west_germanic
-						culture_group = franco_germanic
-						culture_group = east_germanic
-						culture_group = latin
-						culture_group = east_romance
-						culture_group = vasconic
-						culture_group = iberian
-						culture_group = byzantine
-						culture_group = celtic
-						culture_group = finno_ugric
-						culture_group = baltic
-						culture_group = east_slavic
-						culture_group = west_slavic
-						culture_group = south_slavic
-						culture_group = magyar
-						AND = {
-							culture_group = israelite
-							NOR = {
-								culture = sephardi
-								culture = mizrahim
-							}
-						}
-					}
-				}
-			}
-		}
-		modifier = {	#FPS: Government/Location allowed
-			factor = 0
-			OR = {
-				NOR = {
-					is_feudal = yes
-					is_theocracy = yes
-					is_republic = yes
-				}
-				location = {
-					NOR = {
-						holding_type = castle
-						holding_type = city
-						holding_type = temple
-					}
-				}
-			}
-		}
-		#modifier = {	#FPS: Other major restrictions
-		#	factor = 0
-		#}
-		
-		#FPS: from here on non-essential modifiers affecting just the likeliness
 		modifier = {
 			factor = 2
 			location = {
@@ -86,15 +11,18 @@
 			}
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0
 			location = {
-				NOT = {
-					religion_group = christian
+				OR = {
+					region = world_africa_west
+					region = world_steppe_west
+					region = world_steppe_east
+					region = world_himalayas
 				}
 			}
 		}
 		modifier = {
-			factor = 2
+			factor = 5
 			OR = {
 				is_landed = yes
 				spouse = { is_landed = yes }
@@ -103,2072 +31,678 @@
 					is_landed = no
 				}
 			}
+			NOT = { is_theocracy = yes }
+			NOT = { government = theocracy_government }
 		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
+		modifier = {
 			factor = 0
-			AND = {	#FPS: Western architecture background
-				is_alive = no
-				NOR = {
-					religion_group = christian
-					OR = {	#FPS: all western cultures
-						culture_group = crusader_group
-						culture_group = north_germanic
-						culture_group = central_germanic
-						culture_group = west_germanic
-						culture_group = franco_germanic
-						culture_group = east_germanic
-						culture_group = latin
-						culture_group = east_romance
-						culture_group = vasconic
-						culture_group = iberian
-						culture_group = byzantine
-						culture_group = celtic
-						culture_group = finno_ugric
-						culture_group = baltic
-						culture_group = east_slavic
-						culture_group = west_slavic
-						culture_group = south_slavic
-						culture_group = magyar
+			in_command = yes
+			NOT = { siege = { is_attacker = no } }
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				is_feudal = yes
+				is_theocracy = yes
+				is_republic = yes
+				AND = {
+					liege = {
+						OR = {
+							is_feudal = yes
+							is_theocracy = yes
+							is_republic = yes
+						}
+					}
+					OR = {
+						is_landed = no
 						AND = {
-							culture_group = israelite
-							NOR = {
-								culture = sephardi
-								culture = mizrahim
-							}
+							is_landed = yes
+							has_job_title = yes
 						}
 					}
 				}
-			}
-		}
-	}
-	
-	1 = { #throne room
-		factor = 33
-		modifier = {	#FPS: Basic check for warfare and seaborne	#1: Building
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					in_command = yes
-					NOT = {
-						siege = {
-							is_attacker = no
-						}
-					}
-				}
-			}
-		}
-		#modifier = {	#FPS: Geographic/Religion/Culture allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		modifier = {	#FPS: Government/Location allowed
-			factor = 0
-			OR = {
-				NOR = {
-					is_feudal = yes
-					is_theocracy = yes
-					is_republic = yes
-				}
-				location = {
-					NOR = {
-						holding_type = castle
-						holding_type = city
-						holding_type = temple
-					}
-				}
-			}
-		}
-		modifier = {	#FPS: Other major restrictions
-			factor = 0
-			OR = {
-				NOR = {
-					real_tier = king
-					real_tier = emperor
-					#spouse = {			#FPS: Would that work? Think about it
-					#	OR = {
-					#		real_tier = king
-					#		real_tier = emperor
-					#	}
-					#}
-				}
-				trait = in_hiding
 			}
 		}
 		modifier = {
-			factor = 2
-			OR = {
-				is_landed = yes
-				spouse = { is_landed = yes }
-				AND = {
-					liege = { family = ROOT }
-					is_landed = no
+			factor = 0
+			liege = {
+				OR = {
+					is_tribal = yes
+					is_nomadic = yes
 				}
 			}
-		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
-			factor = 0
-			AND = {	#FPS: Royal background
-				is_alive = no
-				NOR = {
-					real_tier = king
-					real_tier = emperor
+			OR = {
+				is_landed = no
+				AND = {
+					is_landed = yes
+					has_job_title = yes
 				}
 			}
 		}
 	}
-	
+
+	1 = { #throne room
+		factor = 30
+		modifier = {
+			factor = 0
+			NOT = { real_tier = king }
+			NOT = { real_tier = emperor }
+			NOT = { is_offmap_tag_including_dead = offmap_china }
+		}
+		modifier = {
+			factor = 0
+			in_command = yes
+			NOT = { siege = { is_attacker = no } }
+			NOT = { is_offmap_tag_including_dead = offmap_china }
+		}
+		modifier = {
+			factor = 0
+			#location = {
+			#	NOT = {
+			#		holding_type = castle
+			#	}
+			#}
+			NOT = {
+				is_feudal = yes
+			}
+			NOT = { is_offmap_tag_including_dead = offmap_china }
+		}
+		modifier = {
+			factor = 0
+			trait = in_hiding
+		}
+		modifier = {
+			factor = 0
+			liege = {
+				OR = {
+					is_tribal = yes
+					is_nomadic = yes
+				}
+			}
+			has_job_title = yes
+		}
+	}
+
 	2 = { # dungeon
 		factor = 100
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
+		modifier = {
 			factor = 0
+			is_alive = yes
 			OR = {
-				location = {
-					is_land = no
-				}
+				prisoner = no
 				AND = {
-					in_command = yes
-					NOT = {
-						siege = {
-							is_attacker = no
-						}
-					}
+					prisoner = yes
+					has_character_modifier = house_arrest
 				}
 			}
 		}
-		#modifier = {	#FPS: Geographic/Religion/Culture allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		#modifier = {	#FPS: Government/Location allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		modifier = {	#FPS: Other major restrictions
+		modifier = {
 			factor = 0
-			AND = {
-				is_alive = yes
-				OR = {
-					prisoner = no
-					AND = {
-						prisoner = yes
-						has_character_modifier = house_arrest	# WARNING: MAKE HOUSE ARREST possible!
-					}
-				}
+			is_alive = no
+			NOR = {
+				death_reason = death_dungeon
+				death_execution_trigger = yes
+				death_sacrificed_trigger = yes
 			}
 		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
+		modifier = {
 			factor = 0
-			AND = {	#FPS: Death as unfree
-				is_alive = no
-				NOR = {
-					death_reason = death_dungeon
-					death_reason = death_execution
-					death_reason = death_sacrificed
-				}
-			}
+			trait = saint
 		}
+		# modifier = {
+			# factor = 0
+			# NOT = { has_global_flag = EMF }
+			# is_alive = no
+			# OR = {
+				# has_nickname = nick_the_saint
+				# has_nickname = nick_the_martyr
+				# has_nickname = nick_the_apostle
+				
+			# }
+		# }
 	}
-	
-	3 = { # coniferous forest
+
+	3 = { # forest
 		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#2: Terrain (troop leading allowed, siege attack when tribal/nomadic)
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					siege = {
-						is_attacker = no
-					}
-					NOR = {
-						is_tribal = yes
-						is_nomadic = yes
-					}
-				}
-			}
-		}
-		modifier = {	#FPS: Geographic/Religion/Culture allowed		#*NOTE*: Apparently fixed. Yay!
+		modifier = {
 			factor = 0
 			location = {
 				NOR = {
 					region = world_europe
-					region = world_steppe
+					region = world_asia_minor
 				}
 			}
 		}
-		#modifier = {	#FPS: Government/Location allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		modifier = {	#FPS: Other major restrictions
+		modifier = {
 			factor = 0
 			location = {
-				NOR = {
+				OR = {
+					terrain = marsh
+					terrain = desert
+					terrain = arctic
+					terrain = plains
+					terrain = steppe
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			location = {
+				OR = {
 					terrain = woods
 					terrain = forest
 				}
 			}
 		}
-		
 		modifier = {
-			factor = 2
-			is_tribal = yes
-		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
-			AND = {	#Well that's tricky. No idea yet actually.
-				is_alive = no
-				capital_scope = {
-					OR = {
-						NOR = {
-							terrain = woods
-							terrain = forest
-						}
-						NOR = {
-							region = world_europe
-							region = world_steppe
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	4 = { # FPS: wood house interior	(was vanilla: bed)
-		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					in_command = yes
-					NOT = {
-						siege = {
-							is_attacker = no
-						}
-					}
-				}
-			}
-		}
-		#modifier = {	#FPS: Geographic/Religion/Culture allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		modifier = {	#FPS: Government/Location allowed
-			factor = 0
-			OR = {
-				NOR = {
-					is_tribal = yes
-					is_nomadic = yes
-					AND = {	#Theocracy only if fitting
-						is_theocracy = yes
-						OR = {
-							religion_group = mesoamerican_group
-							AND = {
-								religion_group = pagan_group
-								NOR = {
-									religion = hellenic_pagan
-									religion = titan_pagan
-									religion = promethean_pagan
-									religion = egyptian_pagan
-									religion = aten_pagan
-									religion = zun_pagan
-									religion = zun_pagan_reformed
-								}
-							}
-						}
-					}
-				}
-				location = {
-					NOR = {
-						holding_type = tribal
-						holding_type = nomad
-						holding_type = temple
-					}
-				}
-			}
-		}
-		#modifier = {	#FPS: Other major restrictions
-		#	factor = 0
-		#}
-		
-		modifier = {
-			factor = 2
-			is_tribal = yes
-		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
-			factor = 0
-			AND = {
-				is_alive = no
-				NOR = {
-					is_tribal = yes
-					is_nomadic = yes
-					AND = {	#Theocracy only if fitting
-						is_theocracy = yes
-						OR = {
-							religion_group = mesoamerican_group
-							AND = {
-								religion_group = pagan_group
-								NOR = {
-									religion = hellenic_pagan
-									religion = titan_pagan
-									religion = promethean_pagan
-									religion = egyptian_pagan
-									religion = aten_pagan
-									religion = zun_pagan
-									religion = zun_pagan_reformed
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	5 = { # tavern
-		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					in_command = yes
-					NOT = {
-						siege = {
-							is_attacker = no
-						}
-					}
-				}
-			}
-		}
-		modifier = {	#FPS: Geographic/Religion/Culture allowed
-			factor = 0
-			location = {	#FPS: Western architecture
-				NOR = {
-					region = world_europe
-					religion_group = christian
-					OR = {	#FPS: all western cultures
-						culture_group = crusader_group
-						culture_group = north_germanic
-						culture_group = central_germanic
-						culture_group = west_germanic
-						culture_group = franco_germanic
-						culture_group = east_germanic
-						culture_group = latin
-						culture_group = east_romance
-						culture_group = vasconic
-						culture_group = iberian
-						culture_group = byzantine
-						culture_group = celtic
-						culture_group = finno_ugric
-						culture_group = baltic
-						culture_group = east_slavic
-						culture_group = west_slavic
-						culture_group = south_slavic
-						culture_group = magyar
-						AND = {
-							culture_group = israelite
-							NOR = {
-								culture = sephardi
-								culture = mizrahim
-							}
-						}
-					}
-				}
-			}
-		}
-		modifier = {	#FPS: Government/Location allowed
-			factor = 0
-			OR = {
-				NOR = {
-					is_feudal = yes
-					is_theocracy = yes
-					is_republic = yes
-					is_tribal = yes
-				}
-				location = {
-					NOR = {
-						holding_type = castle
-						holding_type = city
-						holding_type = temple
-						holding_type = tribal
-					}
-				}
-			}
-		}
-		#modifier = {	#FPS: Other major restrictions
-		#	factor = 0
-		#}
-		
-		modifier = {
-			factor = 0.5
-			NOR = {
-				trait = drunkard
-				trait = hedonist
-				trait = lustful
-				trait = gluttonous
-			}
+			siege = { is_attacker = no }
 		}
 		modifier = {
-			factor = 2
-			trait = hedonist
-		}
-		modifier = {
-			factor = 2
-			trait = gluttonous
-		}
-		modifier = {
-			factor = 5
-			trait = drunkard
-		}
-		modifier = {
-			factor = 2
-			trait = in_hiding
-		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
-			AND = {	#FPS: Western architecture background
-				is_alive = no
-				NOR = {
-					region = world_europe
-					OR = {	#FPS: all western cultures
-						culture_group = crusader_group
-						culture_group = north_germanic
-						culture_group = central_germanic
-						culture_group = west_germanic
-						culture_group = franco_germanic
-						culture_group = east_germanic
-						culture_group = latin
-						culture_group = east_romance
-						culture_group = vasconic
-						culture_group = iberian
-						culture_group = byzantine
-						culture_group = celtic
-						culture_group = finno_ugric
-						culture_group = baltic
-						culture_group = east_slavic
-						culture_group = west_slavic
-						culture_group = south_slavic
-						culture_group = magyar
-						AND = {
-							culture_group = israelite
-							NOR = {
-								culture = sephardi
-								culture = mizrahim
-							}
-						}
-					}
-				}
-				AND = {	#Not for kings unless...
-					higher_real_tier_than = duke
-					OR = {
-						has_nickname = nick_the_drunkard
-						has_nickname = nick_the_fat
-					}
-				}
-			}
-		}
-	}
-	
-	6 = { # military camp
-		factor = 100
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#3: Army Camp (only siege attacker if not tribal/nomadic, fallen soldiers)
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					NOT = { 
-						siege = {
-							is_attacker = yes
-						}
-					}
-				}
-				is_tribal = yes
-				is_nomadic = yes
-			}
-		}
-		#modifier = {	#FPS: Geographic/Religion/Culture allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		#modifier = {	#FPS: Government/Location allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		#modifier = {	#FPS: Other major restrictions
-		#	factor = 0
-		#}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
-			factor = 0
-			AND = {
-				is_alive = no
-				NOT = {
-					death_reason = death_battle
-				}
-			}
-		}
-	}
-	
-	7 = { # jungle forest		(was vanilla: Dolmen)
-		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#2: Terrain
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					siege = {
-						is_attacker = no
-					}
-					NOR = {
-						is_tribal = yes
-						is_nomadic = yes
-					}
-				}
-			}
-		}
-		modifier = {	#FPS: Geographic/Religion/Culture allowed		#*NOTE*: Apparently fixed. Yay!
-			factor = 0
-			location = {
-				OR = {
-					region = world_europe
-					region = world_steppe
-				}
-			}
-		}
-		#modifier = {	#FPS: Government/Location allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		modifier = {	#FPS: Other major restrictions
-			factor = 0
-			location = {
-				OR = {
-					NOR = {
-						terrain = jungle
-						terrain = woods
-						terrain = forest
-					}
-					is_winter = yes	#FPS: warm terrain
-				}
-			}
-		}
-		
-		modifier = {
-			factor = 0.5
-			location = {
-				NOT = {
-					terrain = jungle
-				}
-			}
-		}
-		modifier = {
-			factor = 2
-			is_tribal = yes
-		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
-			factor = 0
-			AND = {
-				is_alive = no
-				capital_scope = {
-					OR = {
-						NOR = {
-							terrain = jungle
-							terrain = woods
-							terrain = forest
-						}
-						OR = {
-							region = world_europe
-							region = world_steppe
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	8 = { # FPS: lush river meadow		(was vanilla: gallows)
-		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#2: Terrain
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					siege = {
-						is_attacker = no
-					}
-					NOR = {
-						is_tribal = yes
-						is_nomadic = yes
-					}
-				}
-			}
-		}
-		#modifier = {	#FPS: Geographic/Religion/Culture allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		#modifier = {	#FPS: Government/Location allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		modifier = {	#FPS: Other major restrictions
-			factor = 0
-			location = {
-				OR = {
-					NOR = {
-						terrain = marsh
-						borders_major_river = yes
-						borders_lake = yes
-					}
-					is_winter = yes	#FPS: warm terrain
-					terrain = arctic
-				}
-			}
-		}
-		
-		modifier = {
-			factor = 1.5
-			OR = {
-				borders_major_river = yes
-			}
-		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
-			factor = 0
-			AND = {
-				is_alive = no
-				capital_scope = {
-					OR = {
-						NOR = {
-							terrain = marsh
-							borders_major_river = yes
-							borders_lake = yes
-						}
-						terrain = arctic
-					}
-				}
-			}
-		}
-	}
-	
-	9 = { # Church
-		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					in_command = yes
-					NOT = {
-						siege = {
-							is_attacker = no
-						}
-					}
-				}
-			}
-		}
-		modifier = {	#FPS: Geographic/Religion/Culture allowed
-			factor = 0
-			location = {	#FPS: Christian temple
-				NOT = {
-					religion_group = christian
-				}
-			}
-		}
-		modifier = {	#FPS: Government/Location allowed
-			factor = 0
-			OR = {
-				NOR = {
-					is_feudal = yes
-					is_theocracy = yes
-					is_republic = yes
-					is_tribal = yes
-				}
-				location = {
-					NOT = {
-						holding_type = temple
-					}
-				}
-			}
-		}
-		#modifier = {	#FPS: Other major restrictions
-		#	factor = 0
-		#}
-		
-		modifier = {
-			factor = 2
-			is_theocracy = yes
-		}
-		modifier = {
-			factor = 2
-			is_priest = yes
-		}
-		modifier = {
-			factor = 2
-			trait = zealous
-		}
-		modifier = {
-			factor = 0.5
-			trait = cynical
-		}
-		modifier = {
-			factor = 2
-			region = world_europe
-		}
-		modifier = {	#FPS: INSIDE (!) the church
-			factor = 0.1
-			NOR = {
-				religion_group = christian
-				trait = sympathy_christendom
-			}
-		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
-			factor = 0
-			AND = {	#FPS: Christian background
-				is_alive = no
-				OR = {
-					NOT = {
-						religion_group = christian
-					}
-					OR = {	#Not for the godless...
-						has_nickname = nick_the_godless
-						has_nickname = nick_priest_hater
-					}
-				}
-			}
-		}
-	}
-	
-	10 = { # Desert
-		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#2: Terrain
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					siege = {
-						is_attacker = no
-					}
-					NOR = {
-						is_tribal = yes
-						is_nomadic = yes
-					}
-				}
-			}
-		}
-		#modifier = {	#FPS: Geographic/Religion/Culture allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		#modifier = {	#FPS: Government/Location allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		modifier = {	#FPS: Other major restrictions
-			factor = 0
-			location = {
-				OR = {
-					NOR = {
-						terrain = desert
-						terrain = coastal_desert
-					}
-					is_winter = yes	#FPS: warm terrain
-				}
-			}
-		}
-		
-		modifier = {
-			factor = 2
-			OR = {
-				trait = desert_mother
-				trait = desert_father
-			}
-		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
-			factor = 0
-			AND = {
-				is_alive = no
-				capital_scope = {
-					NOR = {
-						terrain = desert
-						terrain = coastal_desert
-					}
-				}
-			}
-		}
-	}
-	
-	11 = { # steppe
-		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#2: Terrain
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					siege = {
-						is_attacker = no
-					}
-					NOR = {
-						is_tribal = yes
-						is_nomadic = yes
-					}
-				}
-			}
-		}
-		modifier = {	#FPS: Geographic/Religion/Culture allowed
-			factor = 0
-			location = {
-				region = world_africa
-			}
-		}
-		#modifier = {	#FPS: Government/Location allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		modifier = {	#FPS: Other major restrictions
-			factor = 0
-			location = {
-				NOR = {
-					terrain = plains
-					terrain = steppe
-					terrain = farmlands
-				}
-			}
-		}
-		
-		modifier = {
-			factor = 2
-			is_nomadic = yes
-		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
-			factor = 0
-			AND = {
-				is_alive = no
-				capital_scope = {
-					NOR = {
-						terrain = plains
-						terrain = steppe
-						terrain = farmlands
-					}
-				}
-			}
-		}
-	}
-	
-	12 = { # Ocean w ships
-		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#4: Seaborne (only when near port or at sea)
-			factor = 0
-			location = {
-				NOT = {
-					#port = yes	#FPS: Not sure if should be activated
-					is_land = no
-				}
-			}
-		}
-		#modifier = {	#FPS: Geographic/Religion/Culture allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		#modifier = {	#FPS: Government/Location allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		#modifier = {	#FPS: Other major restrictions
-		#	factor = 0
-		#}
-		
-		#modifier = {	#FPS: Not sure if should be activated, see above
-		#	factor = 0.1
-		#	location = {
-		#		NOT = {
-		#			is_land = no
-		#		}
-		#	}
-		#}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
-			factor = 0
-			is_alive = no	#Unpossible for dead characters
-		}
-	}
-	
-	13 = { # Muslim interior 1
-		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					in_command = yes
-					NOT = {
-						siege = {
-							is_attacker = no
-						}
-					}
-				}
-			}
-		}
-		modifier = {	#FPS: Geographic/Religion/Culture allowed
-			factor = 0
-			location = {	#FPS: Eastern architecture
-				NOR = {
-					region = world_india
-					region = world_persia
-					region = world_middle_east
-					region = world_africa
-					region = world_asia_minor
-					region = world_steppe
-					religion_group = muslim
-					religion_group = jewish_group
-					religion_group = zoroastrian_group
-					religion_group = indian_group
-					OR = {	#FPS: all eastern cultures
-						culture_group = coptic_group
-						culture_group = altaic
-						culture_group = arabic
-						culture_group = iranian
-						culture_group = tocharian_group
-						culture_group = east_african
-						culture_group = west_african
-						culture_group = indo_aryan_group
-						culture_group = dravidian_group
-						culture_group = aramaic
-						AND = {
-							culture_group = israelite
-							NOT = {
-								culture = ashkenazi
-							}
-						}
-					}
-				}
-			}
-		}
-		modifier = {	#FPS: Government/Location allowed
-			factor = 0
-			OR = {
-				NOR = {
-					is_feudal = yes
-					is_theocracy = yes
-					is_republic = yes
-				}
-				location = {
-					NOR = {
-						holding_type = castle
-						holding_type = city
-						holding_type = temple
-					}
-				}
-			}
-		}
-		#modifier = {	#FPS: Other major restrictions
-		#	factor = 0
-		#}
-		
-		#FPS: from here on non-essential modifiers affecting just the likeliness
-		modifier = {
-			factor = 2
-			location = {
-				region = world_india
-				region = world_persia
-				region = world_middle_east
-			}
-		}
-		modifier = {
-			factor = 0.5
-			location = {
-				NOR = {
-					religion_group = muslim
-					religion_group = zoroastrian_group
-					religion_group = indian_group
-				}
-			}
-		}
-		modifier = {
-			factor = 2
-			OR = {
-				is_landed = yes
-				spouse = { is_landed = yes }
-				AND = {
-					liege = { family = ROOT }
-					is_landed = no
-				}
-			}
-		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
-			factor = 0
-			AND = {	#FPS: Eastern architecture background
-				is_alive = no
-				NOR = {
-					religion_group = muslim
-					religion_group = jewish_group
-					religion_group = zoroastrian_group
-					religion_group = indian_group
-					OR = {	#FPS: all eastern cultures
-						culture_group = coptic_group
-						culture_group = altaic
-						culture_group = arabic
-						culture_group = iranian
-						culture_group = tocharian_group
-						culture_group = east_african
-						culture_group = west_african
-						culture_group = indo_aryan_group
-						culture_group = dravidian_group
-						culture_group = aramaic
-						AND = {
-							culture_group = israelite
-							NOT = {
-								culture = ashkenazi
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	14 = { # Harem
-		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					in_command = yes
-					NOT = {
-						siege = {
-							is_attacker = no
-						}
-					}
-				}
-			}
-		}
-		modifier = {	#FPS: Geographic/Religion/Culture allowed
-			factor = 0
-			location = {	#FPS: Eastern architecture
-				NOR = {
-					region = world_india
-					region = world_persia
-					region = world_middle_east
-					region = world_africa
-					region = world_asia_minor
-					region = world_steppe
-					religion_group = muslim
-					religion_group = jewish_group
-					religion_group = zoroastrian_group
-					religion_group = indian_group
-					OR = {	#FPS: all eastern cultures
-						culture_group = coptic_group
-						culture_group = altaic
-						culture_group = arabic
-						culture_group = iranian
-						culture_group = tocharian_group
-						culture_group = east_african
-						culture_group = west_african
-						culture_group = indo_aryan_group
-						culture_group = dravidian_group
-						culture_group = aramaic
-						AND = {
-							culture_group = israelite
-							NOT = {
-								culture = ashkenazi
-							}
-						}
-					}
-				}
-			}
-		}
-		modifier = {	#FPS: Government/Location allowed
-			factor = 0
-			OR = {
-				NOR = {
-					is_feudal = yes
-					is_theocracy = yes
-					is_republic = yes
-				}
-				location = {
-					NOR = {
-						holding_type = castle
-						holding_type = city
-						holding_type = temple
-					}
-				}
-			}
-		}
-		modifier = {	#FPS: Other major restrictions
-			factor = 0
-			OR = {
-				#NOR = {		#FPS: Can have a harem
-				#	has_concubinage = yes	#*WARN*: Test these more!
-				#	has_polygamy = yes
-				#}
-				location = {	#FPS: Only allowed in own or family harem
-					NOR = {
-						owner = ROOT
-						owner = {
-							family = ROOT
-						}
-					}
-				}
-				NOR = {		#FPS: TEST: Actually has (or hubby has) multiple wives/concubines:
-					AND = {
-						is_female = no
-						OR = {
-							num_of_spouses = 2
-							num_of_consorts = 2
-						}
-					}
-					AND = {
-						is_female = yes
-						spouse = {
-							OR = {
-								num_of_spouses = 2
-								num_of_consorts = 2
-							}
-						}
-					}
-				}
-			}
-		}
-		
-		modifier = {
-			factor = 1.5
-			location = {
-				region = world_persia
-				region = world_middle_east
-			}
-		}
-		modifier = {
-			factor = 1.5
-			religion_group = muslim
-		}
-		modifier = {
-			factor = 1.5
-			trait = hedonist
-		}
-		modifier = {
-			factor = 2
-			trait = lustful
-		}
-		modifier = {
-			factor = 0.5	#FPS: Unlikely for chaste men (not Muslims, but e.g. Indians)
-			AND = {
-				is_female = no
-				trait = chaste
-			}
-		}
-		modifier = {
-			factor = 2		#FPS: More likely for women who belong in a harem
-			AND = {
-				is_female = yes
-				OR = {
-					is_consort = yes
-					is_main_spouse = no
-				}
-			}
+			has_character_modifier = in_seclusion
 		}
 		#modifier = {
-		#	factor = 0.5	#FPS: Unlikely for men who don't own a harem
-		#	AND = {
-		#		is_female = no
-		#		NOR = {
-		#			num_of_spouses = 2
-		#			num_of_consorts = 2
+		#	factor = 0.01
+		#	is_feudal = no
+		#	is_theocracy = no
+		#	is_republic = no
+		#	location = {
+		#		any_province_holding = {
+		#			holding_type = nomad
 		#		}
 		#	}
 		#}
-		modifier = {
-			factor = 2
-			OR = {
-				is_landed = yes
-				spouse = { is_landed = yes }
-				AND = {
-					liege = { family = ROOT }
-					is_landed = no
-				}
-			}
-		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
-			factor = 0
-			AND = {	#FPS: Eastern architecture background
-				is_alive = no
-				NOR = {
-					religion_group = muslim
-					religion_group = jewish_group
-					religion_group = zoroastrian_group
-					religion_group = indian_group
-					OR = {	#FPS: all eastern cultures
-						culture_group = coptic_group
-						culture_group = altaic
-						culture_group = arabic
-						culture_group = iranian
-						culture_group = tocharian_group
-						culture_group = east_african
-						culture_group = west_african
-						culture_group = indo_aryan_group
-						culture_group = dravidian_group
-						culture_group = aramaic
-						AND = {
-							culture_group = israelite
-							NOT = {
-								culture = ashkenazi
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	15 = { # Muslim interior 2 (with windows)
-		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					in_command = yes
-					NOT = {
-						siege = {
-							is_attacker = no
-						}
-					}
-				}
-			}
-		}
-		modifier = {	#FPS: Geographic/Religion/Culture allowed
-			factor = 0
-			location = {	#FPS: Eastern architecture
-				NOR = {
-					region = world_india
-					region = world_persia
-					region = world_middle_east
-					region = world_africa
-					region = world_asia_minor
-					region = world_steppe
-					religion_group = muslim
-					religion_group = jewish_group
-					religion_group = zoroastrian_group
-					religion_group = indian_group
-					OR = {	#FPS: all eastern cultures
-						culture_group = coptic_group
-						culture_group = altaic
-						culture_group = arabic
-						culture_group = iranian
-						culture_group = tocharian_group
-						culture_group = east_african
-						culture_group = west_african
-						culture_group = indo_aryan_group
-						culture_group = dravidian_group
-						culture_group = aramaic
-						AND = {
-							culture_group = israelite
-							NOT = {
-								culture = ashkenazi
-							}
-						}
-					}
-				}
-			}
-		}
-		modifier = {	#FPS: Government/Location allowed
-			factor = 0
-			OR = {
-				NOR = {
-					is_feudal = yes
-					is_theocracy = yes
-					is_republic = yes
-				}
-				location = {
-					NOR = {
-						holding_type = castle
-						holding_type = city
-						holding_type = temple
-					}
-				}
-			}
-		}
-		#modifier = {	#FPS: Other major restrictions
-		#	factor = 0
-		#}
-		
-		modifier = {
-			factor = 2
-			location = {
-				region = world_india
-				region = world_persia
-				region = world_middle_east
-			}
-		}
-		modifier = {
-			factor = 0.5
-			location = {
-				NOR = {
-					religion_group = muslim
-					religion_group = zoroastrian_group
-					religion_group = indian_group
-				}
-			}
-		}
-		modifier = {
-			factor = 2
-			OR = {
-				is_landed = yes
-				spouse = { is_landed = yes }
-				AND = {
-					liege = { family = ROOT }
-					is_landed = no
-				}
-			}
-		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
-			factor = 0
-			AND = {	#FPS: Eastern architecture background
-				is_alive = no
-				NOR = {
-					religion_group = muslim
-					religion_group = jewish_group
-					religion_group = zoroastrian_group
-					religion_group = indian_group
-					OR = {	#FPS: all eastern cultures
-						culture_group = coptic_group
-						culture_group = altaic
-						culture_group = arabic
-						culture_group = iranian
-						culture_group = tocharian_group
-						culture_group = east_african
-						culture_group = west_african
-						culture_group = indo_aryan_group
-						culture_group = dravidian_group
-						culture_group = aramaic
-						AND = {
-							culture_group = israelite
-							NOT = {
-								culture = ashkenazi
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	16 = { # Mongol camp
-		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					in_command = yes
-					NOT = {
-						siege = {
-							is_attacker = no
-						}
-					}
-				}
-			}
-		}
-		#modifier = {	#FPS: Geographic/Religion/Culture allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		modifier = {	#FPS: Government/Location allowed
-			factor = 0
-			OR = {
-				NOR = {
-					is_nomadic = yes
-					is_theocracy = yes
-				}
-				location = {
-					OR = {
-						NOT = {
-							holding_type = nomad
-						}
-						NOR = {		#FPS: visible green grass reasoning
-							terrain = steppe
-							terrain = plains
-							terrain = farmlands
-							terrain = marsh
-							terrain = hills
-						}
-					}
-				}
-			}
-		}
-		#modifier = {	#FPS: Other major restrictions
-		#	factor = 0
-		#}
-		
-		modifier = {
-			factor = 0.5
-			location = {
-				NOT = {
-					region = world_steppe
-				}
-			}
-		}
-		modifier = {
-			factor = 5
-			is_nomadic = yes
-		}
-	}
-	
-	17 = { # straw hut		(was vanilla: Mongol camp 2)
-		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					in_command = yes
-					NOT = {
-						siege = {
-							is_attacker = no
-						}
-					}
-				}
-			}
-		}
-		#modifier = {	#FPS: Geographic/Religion/Culture allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		modifier = {	#FPS: Government/Location allowed
-			factor = 0
-			OR = {
-				NOR = {
-					is_tribal = yes
-					is_nomadic = yes
-					is_theocracy = yes
-				}
-				location = {
-					NOR = {
-						holding_type = tribal
-						holding_type = nomad
-					}
-				}
-			}
-		}
-		#modifier = {	#FPS: Other major restrictions
-		#	factor = 0
-		#}
-		
-		modifier = {
-			factor = 2
-			is_tribal = yes
-		}
-		modifier = {
-			factor = 0.5
-			location = {
-				region = world_europe
-			}
-		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
-			factor = 0
-			AND = {
-				is_alive = no
-				NOR = {
-					is_tribal = yes
-					is_nomadic = yes
-					AND = {	#Theocracy only if fitting
-						is_theocracy = yes
-						OR = {
-							religion_group = mesoamerican_group
-							AND = {
-								religion_group = pagan_group
-								NOR = {
-									religion = hellenic_pagan
-									religion = titan_pagan
-									religion = promethean_pagan
-									religion = egyptian_pagan
-									religion = aten_pagan
-									religion = zun_pagan
-									religion = zun_pagan_reformed
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	18 = { # Papal palace
-		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					in_command = yes
-					NOT = {
-						siege = {
-							is_attacker = no
-						}
-					}
-				}
-			}
-		}
-		#modifier = {	#FPS: Geographic/Religion/Culture allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		modifier = {	#FPS: Government/Location allowed
-			factor = 0
-			location = {
-				NOT = {
-					holding_type = temple
-				}
-			}
-		}
-		modifier = {	#FPS: Other major restrictions		#*NOTE*: Being tweaked...
-			factor = 0
-			#NOT = {
-			#	AND = {
-			#		location = {
-			#			province_id = 333
-			#		}
-			#		OR = {
-			#			has_landed_title = b_roma
-			#			liege = {
-			#				has_landed_title = b_roma
-			#			}
-			#		}
-			#	}
-			#}
-			location = {
-				OR = {
-					NOT = {
-						province_id = 333	#is Roma
-					}
-					owner = {			#is held by the Pope, or his subordinate
-						NOR = {
-							OR = {
-								has_landed_title = k_papal_state
-								has_landed_title = d_fraticelli
-								has_landed_title = k_papal_chalcedon
-								has_landed_title = k_chalcedonian
-							}
-							any_liege = {
-								OR {
-									has_landed_title = k_papal_state
-									has_landed_title = d_fraticelli
-									has_landed_title = k_papal_chalcedon
-									has_landed_title = k_chalcedonian
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-		
-		modifier = {	#is the Pope
-			factor = 10
-			OR = {
-				has_landed_title = k_papal_state
-				has_landed_title = d_fraticelli
-				has_landed_title = k_papal_chalcedon
-				has_landed_title = k_chalcedonian
-			}
-		}
-		modifier = {
-			factor = 2
-			is_theocracy = yes
-		}
-		modifier = {
-			factor = 2
-			is_priest = yes
-		}
-		modifier = {
-			factor = 2
-			trait = zealous
-		}
-		modifier = {
-			factor = 0.5
-			trait = cynical
-		}
-		modifier = {	#FPS: INSIDE (!) the church
-			factor = 0.5
-			NOR = {
-				religion_group = christian
-				trait = sympathy_christendom
-			}
-		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
-			factor = 0
-			AND = {	#FPS: Papal background
-				is_alive = no
-				OR = {
-					OR {
-						has_landed_title = k_papal_state
-						has_landed_title = d_fraticelli
-						has_landed_title = k_papal_chalcedon
-						has_landed_title = k_chalcedonian
-					}
-					any_liege = {
-						OR {
-							has_landed_title = k_papal_state
-							has_landed_title = d_fraticelli
-							has_landed_title = k_papal_chalcedon
-							has_landed_title = k_chalcedonian
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	19 = { # Muslim mosque
-		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					in_command = yes
-					NOT = {
-						siege = {
-							is_attacker = no
-						}
-					}
-				}
-			}
-		}
-		modifier = {	#FPS: Geographic/Religion/Culture allowed
-			factor = 0
-			location = {	#FPS: Christian temple
-				NOT = {
-					religion_group = muslim
-				}
-			}
-		}
-		modifier = {	#FPS: Government/Location allowed
-			factor = 0
-			OR = {
-				NOR = {
-					is_feudal = yes
-					is_theocracy = yes
-					is_republic = yes
-					is_tribal = yes
-				}
-				location = {
-					NOT = {
-						holding_type = temple
-					}
-				}
-			}
-		}
-		#modifier = {	#FPS: Other major restrictions
-		#	factor = 0
-		#}
-		
-		modifier = {
-			factor = 2
-			is_theocracy = yes
-		}
-		modifier = {
-			factor = 2
-			is_priest = yes
-		}
-		modifier = {
-			factor = 2
-			trait = zealous
-		}
-		modifier = {
-			factor = 0.5
-			trait = cynical
-		}
-		modifier = {
-			factor = 2
-			region = world_middle_east
-		}
-		modifier = {
-			factor = 0.25
-			NOR = {
-				religion_group = muslim
-				trait = sympathy_islam
-			}
-		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
-			factor = 0
-			AND = {	#FPS: Muslim background
-				is_alive = no
-				OR = {
-					NOT = {
-						religion_group = muslim
-					}
-					OR = {	#Not for the godless...
-						has_nickname = nick_the_godless
-						has_nickname = nick_priest_hater
-					}
-				}
-			}
-		}
-	}
-	
-	20 = { # Indian temple		(was vanilla: Pagan human sacrifice)
-		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					in_command = yes
-					NOT = {
-						siege = {
-							is_attacker = no
-						}
-					}
-				}
-			}
-		}
-		modifier = {	#FPS: Geographic/Religion/Culture allowed
-			factor = 0
-			location = {	#FPS: Christian temple
-				NOT = {
-					religion_group = indian_group
-				}
-			}
-		}
-		modifier = {	#FPS: Government/Location allowed
-			factor = 0
-			OR = {
-				NOR = {
-					is_feudal = yes
-					is_theocracy = yes
-					is_republic = yes
-					is_tribal = yes
-				}
-				location = {
-					NOT = {
-						holding_type = temple
-					}
-				}
-			}
-		}
-		#modifier = {	#FPS: Other major restrictions
-		#	factor = 0
-		#}
-		
-		modifier = {
-			factor = 2
-			is_theocracy = yes
-		}
-		modifier = {
-			factor = 2
-			is_priest = yes
-		}
-		modifier = {
-			factor = 2
-			trait = zealous
-		}
-		modifier = {
-			factor = 2
-			trait = brahmin
-		}
-		modifier = {
-			factor = 0.5
-			trait = cynical
-		}
-		modifier = {
-			factor = 2
-			region = world_india
-		}
-		modifier = {
-			factor = 0.25
-			NOR = {
-				religion_group = indian_group
-				trait = sympathy_indian
-			}
-		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
-			factor = 0
-			AND = {	#FPS: Indian background
-				is_alive = no
-				OR = {
-					NOT = {
-						religion_group = indian_group
-						#religion_group = zoroastrian_group		#*NOTE*: maybe?
-						#religion = zun_pagan
-						#religion = zun_pagan_reformed
-						#religion = egyptian_pagan
-						#religion = aten_pagan
-					}
-					OR = {	#Not for the godless...
-						has_nickname = nick_the_godless
-						has_nickname = nick_priest_hater
-					}
-				}
-			}
-		}
-	}
-	
-	21 = { # Tundra/snow
-		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#2: Terrain
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					siege = {
-						is_attacker = no
-					}
-					NOR = {
-						is_tribal = yes
-						is_nomadic = yes
-					}
-				}
-			}
-		}
-		#modifier = {	#FPS: Geographic/Religion/Culture allowed
-		#	factor = 0
-		#}
-		#modifier = {	#FPS: Government/Location allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		modifier = {	#FPS: Other major restrictions
-			factor = 0
-			location = {
-				NOR = {
-					terrain = arctic
-					is_winter = yes
-				}
-			}
-		}
-		
-		modifier = {
-			factor = 1.5
-			location = {
-				OR = {
-					region = world_europe_north
-					region = world_europe_east
-				}
-			}
-		}
-		modifier = {
-			factor = 1.5
-			location = {
-				terrain = arctic
-			}
-		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
-			factor = 0
-			AND = {
-				is_alive = no
-				capital_scope = {
-					NOT = {
-						terrain = arctic
-					}
-				}
-			}
-		}
-	}
-	
-	22 = { # African Savanna
-		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#2: Terrain
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					siege = {
-						is_attacker = no
-					}
-					NOR = {
-						is_tribal = yes
-						is_nomadic = yes
-					}
-				}
-			}
-		}
-		modifier = {	#FPS: Geographic/Religion/Culture allowed
-			factor = 0
-			location = {
-				NOT = {
-					region = world_africa
-				}
-			}
-		}
-		#modifier = {	#FPS: Government/Location allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		modifier = {	#FPS: Other major restrictions
-			factor = 0
-			location = {
-				OR = {
-					NOR = {
-						terrain = savanna
-						terrain = plains
-						terrain = steppe
-						terrain = farmlands
-					}
-					is_winter = yes	#FPS: warm terrain
-				}
-			}
-		}
-		
 		#modifier = {
 		#	factor = 2
-		#	location = {
-		#		OR = {
-		#			region = world_africa_west
-		#		}
-		#	}
+		#	is_tribal = yes
+		#}
+	}
+
+	4 = { # bed
+		factor = 100
+		modifier = {
+			factor = 0
+			is_alive = yes
+			NOR = {
+				trait = incapable
+				AND = {
+					trait = infirm
+					prisoner = no
+				}
+				AND = {
+					prisoner = yes
+					has_character_modifier = house_arrest
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			in_command = yes
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				death_sacrificed_trigger = yes
+				death_reason = death_battle
+				death_execution_trigger = yes
+				death_reason = death_dungeon
+			}
+		}
+		#modifier = {
+		#	factor = 0
+		#	trait = infirm
+		#	prisoner = yes
 		#}
 		modifier = {
-			factor = 0.5
+			factor = 0
+			trait = saint
+		}
+		# modifier = {
+			# factor = 0
+			# NOT = { has_global_flag = EMF }
+			# is_alive = no
+			# OR = {
+				# has_nickname = nick_the_saint
+				# has_nickname = nick_the_martyr
+				# has_nickname = nick_the_apostle
+				
+			# }
+		# }
+	}
+	5 = { # tavern - changed to tundra/snow
+		factor = 2
+		modifier = {
+			factor = 0
 			location = {
-				terrain = farmlands
+				NOR	= {
+					region = world_europe_north
+					region = world_europe_east
+					region = world_steppe
+					region = world_himalayas
+				}
 			}
 		}
 		modifier = {
 			factor = 1.5
+			location = { terrain = arctic }
+		}
+		modifier = {
+			factor = 0
 			location = {
-				terrain = plains
+				OR = {
+					region = world_steppe_tarim
+					terrain = steppe
+					terrain = plains
+					terrain = farmlands
+					terrain = desert
+				}
 			}
 		}
 		modifier = {
-			factor = 3
-			location = {
-				terrain = savanna
+			factor = 0
+			siege = { is_attacker = no }
+		}
+		modifier = {
+			factor = 0
+			has_character_modifier = in_seclusion
+		}
+	}
+	6 = { # military camp
+		factor = 100
+		modifier = {
+			factor = 0
+			OR = {
+				AND = {
+					is_alive = yes
+					#in_command = no
+					NOT = { siege = { is_attacker = yes } }
+					#NOT = { has_job_title  = job_marshal }
+				}
+				AND = {
+					is_alive = no
+					NOT = { death_reason = death_battle }
+				}
 			}
 		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
+		modifier = {
 			factor = 0
-			AND = {
-				is_alive = no
-				capital_scope = {
+			trait = saint
+		}
+		# modifier = {
+			# factor = 0
+			# NOT = { has_global_flag = EMF }
+			# is_alive = no
+			# OR = {
+				# has_nickname = nick_the_saint
+				# has_nickname = nick_the_martyr
+				# has_nickname = nick_the_apostle
+				
+			# }
+		# }
+		#modifier = {
+		#	factor = 0
+		#	OR = {
+		#		is_nomadic = yes
+		#		AND = {
+		#			liege = { is_nomadic = yes }
+		#			is_landed = no
+		#		}
+		#	}
+		#	war = no
+		#}
+		#modifier = {
+		#	factor = 0.02
+		#	in_command = no
+		#	has_job_title = job_marshal
+		#}
+	}
+	7 = { # Dolmen - changed to African village
+		factor = 2
+		modifier = {
+			factor = 0
+			location = {
+				NOR = {
+					region = world_africa_east
+					region = world_africa_west
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			location = { terrain = desert }
+		}
+	}
+	8 = { # Gallows - changed to African savanna
+		factor = 2
+		modifier = {
+			factor = 0
+			location = {
+				NOR = {
+					region = world_africa_east
+					region = world_africa_west
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			location = { terrain = desert }
+		}
+		modifier = {
+			factor = 1.5
+			location = { region = world_africa_east }
+		}
+		modifier = {
+			factor = 0
+			siege = { is_attacker = no }
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				is_nomadic = yes
+				AND = {
+					liege = { is_nomadic = yes }
 					OR = {
-						NOT = {
-							region = world_africa
-						}
-						NOR = {
-							terrain = savanna
-							terrain = plains
-							terrain = steppe
-							terrain = farmlands
+						is_landed = no
+						AND = {
+							is_landed = yes
+							has_job_title = yes
 						}
 					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			has_character_modifier = in_seclusion
+		}
+	}
+	9 = { # Church
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = { religion_group = christian }
+		}
+		#modifier = {
+		#	factor = 0
+		#	is_landed = no
+		#}
+		modifier = {
+			factor = 0
+			in_command = yes
+			NOT = { siege = { is_attacker = no } }
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				is_nomadic = yes
+				is_tribal = yes
+				AND = {
+					liege = {
+						OR = {
+							is_nomadic = yes
+							is_tribal = yes
+						}
+					}
+					OR = {
+						is_landed = no
+						AND = {
+							is_landed = yes
+							has_job_title = yes
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				trait = monk
+				trait = nun
+				trait = theologian
+				is_priest = yes
+			}
+		}
+		modifier = {
+			factor = 10
+			government = theocracy_government
+			is_landed = yes
+		}
+		#modifier = {
+		#	factor = 3
+		#	liege = { is_theocracy = yes }
+		#	OR = {
+		#		is_landed = no
+		#		AND = {
+		#			is_landed = yes
+		#			has_job_title = yes
+		#		}
+		#	}
+		#}
+		modifier = {
+			factor = 0
+			NOR = {
+				is_priest = yes
+				trait = monk
+				trait = nun
+				trait = theologian
+				trait = martial_cleric
+				trait = scholarly_theologian
+				trait = mastermind_theologian
+				government = theocracy_government
+				is_theocracy = yes
+			}
+		}
+	}
+	10 = { # Desert
+		factor = 1
+		modifier = {
+			factor = 0
+			location = {
+				NOR = {
+					region = world_africa
+					region = world_middle_east
+					region = world_persia
+					region = world_asia_minor
+					region = world_steppe_tarim
+					region = world_himalayas
+				}
+			}
+			location = { NOT = { terrain = desert } }
+		}
+		modifier = {
+			factor = 2
+			location = { terrain = desert }
+		}
+		modifier = {
+			factor = 0
+			location = { terrain = marsh }
+		}
+		modifier = {
+			factor = 0
+			siege = { is_attacker = no }
+		}
+		modifier = {
+			factor = 5
+			OR = {
+				is_nomadic = yes
+				AND = {
+					liege = { is_nomadic = yes }
+					OR = {
+						is_landed = no
+						AND = {
+							is_landed = yes
+							has_job_title = yes
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 10
+			OR = {
+				trait = desert_father
+				trait = desert_mother
+			}
+		}
+		modifier = {
+			factor = 0
+			has_character_modifier = in_seclusion
+		}
+	}
+	11 = { # Steppe
+		factor = 2
+		modifier = {
+			factor = 0
+			location = {
+				NOR = {
+					region = world_steppe
+					region = world_europe
+					region = world_persia
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			location = {
+				region = world_steppe
+				NOR = {
+					terrain = steppe
+					terrain = plains
+					terrain = hills
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			location = {
+				OR = {
+					region = world_europe
+					region = world_persia
+				}
+				NOT = { terrain = steppe }
+			}
+		}
+		modifier = {
+			factor = 2
+			is_landed = no
+		}
+		modifier = {
+			factor = 0
+			siege = { is_attacker = no }
+		}
+		modifier = {
+			factor = 0
+			has_character_modifier = in_seclusion
+		}
+	}
+	12 = { # Ocean w ships
+		factor = 1
+		modifier = {
+			factor = 0
+			location = {
+				NOR = {
+					port = yes
+					is_land = no
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				is_nomadic = yes
+				AND = {
+					liege = { is_nomadic = yes }
+					OR = {
+						is_landed = no
+						AND = {
+							is_landed = yes
+							has_job_title = yes
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			is_alive = no
+		}
+		modifier = {
+			factor = 0
+			has_character_modifier = in_seclusion
+		}
+	}
+	13 = { # Muslim interior
+		factor = 2
+		modifier = {
+			factor = 0
+			location = {
+				NOR = {
+					religion_group = muslim
+					religion_group = indian_group
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			in_command = yes
+			NOT = { siege = { is_attacker = no } }
+		}
+		modifier = {
+			factor = 5
+			OR = {
+				is_landed = yes
+				spouse = { is_landed = yes }
+				AND = {
+					liege = { family = ROOT }
+					is_landed = no
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				is_feudal = yes
+				is_theocracy = yes
+				is_republic = yes
+				AND = {
+					liege = {
+						OR = {
+							is_feudal = yes
+							is_theocracy = yes
+							is_republic = yes
+						}
+					}
+					OR = {
+						is_landed = no
+						AND = {
+							is_landed = yes
+							has_job_title = yes
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			liege = {
+				OR = {
+					is_tribal = yes
+					is_nomadic = yes
+				}
+			}
+			OR = {
+				is_landed = no
+				AND = {
+					is_landed = yes
+					has_job_title = yes
 				}
 			}
 		}
 	}
-	
-	23 = { # Mountains
-		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#2: Terrain
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					siege = {
-						is_attacker = no
-					}
-					NOR = {
-						is_tribal = yes
-						is_nomadic = yes
-					}
-				}
-			}
-		}
-		#modifier = {	#FPS: Geographic/Religion/Culture allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		#modifier = {	#FPS: Government/Location allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		modifier = {	#FPS: Other major restrictions
+	14 = { # Harem - changed to mountain
+		factor = 2
+		modifier = {
 			factor = 0
 			location = {
 				NOR = {
@@ -2177,107 +711,492 @@
 				}
 			}
 		}
-		
+		modifier = {
+			factor = 1.5
+			location = { terrain = mountain }
+		}
+		modifier = {
+			factor = 0
+			location = { terrain = arctic }
+		}
+		modifier = {
+			factor = 0
+			siege = { is_attacker = no }
+		}
+		modifier = {
+			factor = 0
+			has_character_modifier = in_seclusion
+		}
+	}
+	15 = { # Muslim interior 2
+		factor = 2
+		modifier = {
+			factor = 0
+			location = {
+				NOR = {
+					religion_group = muslim
+					religion_group = indian_group
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			in_command = yes
+			NOT = { siege = { is_attacker = no } }
+		}
+		modifier = {
+			factor = 5
+			OR = {
+				is_landed = yes
+				spouse = { is_landed = yes }
+				AND = {
+					liege = { family = ROOT }
+					is_landed = no
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				is_feudal = yes
+				is_theocracy = yes
+				is_republic = yes
+				AND = {
+					liege = {
+						OR = {
+							is_feudal = yes
+							is_theocracy = yes
+							is_republic = yes
+						}
+					}
+					OR = {
+						is_landed = no
+						AND = {
+							is_landed = yes
+							has_job_title = yes
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			liege = {
+				OR = {
+					is_tribal = yes
+					is_nomadic = yes
+				}
+			}
+			OR = {
+				is_landed = no
+				AND = {
+					is_landed = yes
+					has_job_title = yes
+				}
+			}
+		}
+	}
+
+	16 = { # Mongol camp 1
+		factor = 2
+		modifier = {
+			factor = 0
+			NOR = {
+				is_nomadic = yes
+				AND = {
+					liege = { is_nomadic = yes }
+					OR = {
+						is_landed = no
+						AND = {
+							is_landed = yes
+							has_job_title = yes
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = { siege = { is_attacker = no } }
+			location = {
+				OR = {
+				#	terrain = arctic
+					terrain = mountain
+					terrain = desert
+				#	terrain = jungle
+				#	terrain = marsh
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			location = {
+				region = world_africa
+			}
+		}
+		modifier = {
+			factor = 5
+			OR = {
+				is_landed = yes
+				spouse = { is_landed = yes }
+				AND = {
+					liege = { family = ROOT }
+					is_landed = no
+				}
+				AND = {
+					liege = { is_nomadic = yes }
+					has_job_title = yes
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				is_nomadic = yes
+				AND = {
+					liege = { is_nomadic = yes }
+					is_ruler = no
+				}
+			}
+			in_command = yes
+			NOT = { siege = { is_attacker = no } }
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				is_nomadic = yes
+				AND = {
+					liege = { is_nomadic = yes }
+					is_ruler = no
+				}
+			}
+			war = yes
+			in_command = yes
+			NOT = { siege = { is_attacker = no } }
+		}
+	}
+
+	17 = { # Mongol camp 2 - changed to "tribal" interior 
+		factor = 1
+		modifier = {
+			factor = 2
+			is_tribal = yes
+		}
+		modifier = {
+			factor = 5
+			OR = {
+				is_landed = yes
+				spouse = { is_landed = yes }
+				AND = {
+					liege = { family = ROOT }
+					is_landed = no
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			in_command = yes
+			NOT = { siege = { is_attacker = no } }
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				is_tribal = yes
+				is_nomadic = yes
+				AND = {
+					liege = {
+						OR = {
+							is_tribal = yes
+							is_nomadic = yes
+						}
+					}
+					OR = {
+						is_landed = no
+						AND = {
+							is_landed = yes
+							has_job_title = yes
+						}
+					}
+				}
+				AND = {
+					is_theocracy = yes
+					religion_group = pagan_group
+				}
+				AND = {
+					liege = {
+						is_theocracy = yes
+						religion_group = pagan_group
+					}
+					OR = {
+						is_landed = no
+						AND = {
+							is_landed = yes
+							has_job_title = yes
+						}
+					}
+				}
+			}
+		}
+	}
+
+	18 = { # Papal palace
+		factor = 20
+		modifier = {
+			factor = 0
+			NOT = {
+				location = { province_id = 333 }
+			}
+		}
+		modifier = {
+			factor = 0
+			NOR = {
+				has_landed_title = b_roma
+				AND = {
+					liege = { has_landed_title = b_roma }
+					OR = {
+						is_councillor = yes
+						is_landed = no
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 5
+			has_landed_title = b_roma
+		}
+		#modifier = {
+		#	factor = 0
+		#	NOT = { has_landed_title = k_papal_state }
+		#	NOT = { has_landed_title = d_fraticelli }
+			#NOT = { has_claim = k_papal_state }
+			#NOT = { has_claim = d_fraticelli }
+		#}
+		modifier = {
+			factor = 0
+			in_command = yes
+			NOT = { siege = { is_attacker = no } }
+		}
+	}
+
+	19 = { # Muslim mosque
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { religion_group = muslim }
+		}
+		modifier = {
+			factor = 0
+			in_command = yes
+			NOT = { siege = { is_attacker = no } }
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				is_nomadic = yes
+				is_tribal = yes
+				AND = {
+					liege = {
+						OR = {
+							is_nomadic = yes
+							is_tribal = yes
+						}
+					}
+					OR = {
+						is_landed = no
+						AND = {
+							is_landed = yes
+							has_job_title = yes
+						}
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				is_landed = yes
+				spouse = { is_landed = yes }
+				AND = {
+					liege = { family = ROOT }
+					is_landed = no
+				}
+			}
+		}
+		modifier = {
+			factor = 2.5
+			is_theocracy = yes
+			AND = {
+				liege = { is_theocracy = yes }
+				OR = {
+					is_landed = no
+					AND = {
+						is_landed = yes
+						has_job_title = yes
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				trait = zealous
+				trait = faqih
+				trait = martial_cleric
+				trait = scholarly_theologian
+				trait = mastermind_theologian
+			}
+		}
+		modifier = {
+			factor = 0
+			has_character_modifier = in_seclusion
+		}
+	}
+
+	20 = { # Pagan human sacrifice - changed to "meadow"
+		factor = 1
+		modifier = {
+			factor = 0
+			location = {
+				NOR = {
+					region = world_europe
+					region = world_asia_minor
+					region = world_steppe_west
+					region = world_india
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			location = {
+				OR = {
+					terrain = arctic
+					terrain = desert
+					terrain = steppe
+					terrain = mountain
+				}
+			}
+		}
 		modifier = {
 			factor = 2
 			location = {
-				terrain = mountain
+				OR = {
+					terrain = plains
+					terrain = woods
+				}
 			}
 		}
 		modifier = {
-			factor = 0.5
-			location = {
-				region = world_europe
-			}
-		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
-			AND = {
-				is_alive = no
-				capital_scope = {
-					NOR = {
-						terrain = mountain
-						terrain = hills
-					}
-				}
-			}
+			siege = { is_attacker = no }
+		}
+		modifier = {
+			factor = 0
+			has_character_modifier = in_seclusion
 		}
 	}
-	
-	24 = { # Green Hills
+
+	21 = { # Celtic Green - used as generic European hills
 		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#2: Terrain
+		modifier = {
 			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					siege = {
-						is_attacker = no
-					}
-					NOR = {
-						is_tribal = yes
-						is_nomadic = yes
-					}
+			location = { NOT = { region = world_europe } }
+		}
+		modifier = {
+			factor = 0
+			location = {
+				OR = {
+					terrain = arctic
+					terrain = desert
+					terrain = steppe
+					terrain = forest
+					terrain = marsh
+					terrain = mountain
 				}
 			}
 		}
-		modifier = {	#FPS: Geographic/Religion/Culture allowed
-			factor = 0
+		modifier = {
+			factor = 2
 			location = {
-				NOT = {
-					region = world_europe
-				}
-			}
-		}
-		#modifier = {	#FPS: Government/Location allowed
-		#	factor = 0
-		#	NOR = {
-		#	}
-		#}
-		modifier = {	#FPS: Other major restrictions
-			factor = 0
-			location = {
-				NOR = {
-					terrain = hills
+				OR = {
 					terrain = farmlands
+					terrain = hills
 				}
 			}
 		}
-		
 		modifier = {
-			factor = 1.5
-			location = {
-				terrain = hills
-			}
-		}
-		modifier = {
-			factor = 1.5
-			location = {
-				region = world_europe_west_brittania
-			}
-		}
-		modifier = {
-			factor = 1.5
-			location = {
-				culture_group = celtic
-			}
-		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
-			AND = {
-				is_alive = no
-				capital_scope = {
-					OR = {
-						NOT = {
-							region = world_europe
+			siege = { is_attacker = no }
+		}
+		modifier = {
+			factor = 0
+			has_character_modifier = in_seclusion
+		}
+	}
+
+	22 = { # Celtic Castle
+		factor = 2
+		modifier = {
+			factor = 0
+			location = { NOT = { region = world_europe_west_brittania } }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { culture_group = celtic }
+		}
+		modifier = {
+			factor = 2
+			location = { culture_group = celtic }
+			OR = {
+				is_landed = yes
+				spouse = { is_landed = yes }
+				AND = {
+					liege = { family = ROOT }
+					is_landed = no
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			has_character_modifier = in_seclusion
+		}
+	}
+	
+	23 = { # Alhambra
+		factor = 2
+		modifier = {
+			factor = 0
+			location = {
+				NOR = {
+					region = world_europe_west_iberia
+					region = world_africa_north
+				}
+			}
+		}
+		modifier = {
+			factor = 0
+			location = { NOT = { religion_group = muslim } }
+		}
+		modifier = {
+			factor = 1.5
+			location = { culture = andalusian_arabic }
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				is_nomadic = yes
+				is_tribal = yes
+				AND = {
+					liege = {
+						OR = {
+							is_nomadic = yes
+							is_tribal = yes
 						}
-						NOR = {
-							terrain = hills
-							terrain = farmlands
+					}
+					OR = {
+						is_landed = no
+						AND = {
+							is_landed = yes
+							has_job_title = yes
 						}
 					}
 				}
@@ -2285,65 +1204,20 @@
 		}
 	}
 	
-	25 = { # Mediterranean Villa
+	24 = { # Mediterranean Villa
 		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
-			factor = 0
-			OR = {
-				location = {
-					is_land = no
-				}
-				AND = {
-					in_command = yes
-					NOT = {
-						siege = {
-							is_attacker = no
-						}
-					}
-				}
-			}
-		}
-		modifier = {	#FPS: Geographic/Religion/Culture allowed
-			factor = 0
-			location = {	#FPS: Mediterranean architecture
-				NOR = {
-					region = world_europe_south
-					region = world_europe_west_iberia
-					region = world_europe_west_francia
-					region = world_asia_minor
-				}
-			}
-		}
-		modifier = {	#FPS: Government/Location allowed
-			factor = 0
-			OR = {
-				NOR = {
-					is_feudal = yes
-					is_theocracy = yes
-					is_republic = yes
-				}
-				location = {
-					NOR = {
-						holding_type = castle
-						holding_type = city
-					}
-				}
-			}
-		}
-		#modifier = {	#FPS: Other major restrictions
-		#	factor = 0
-		#}
-		
 		modifier = {
-			factor = 0.5
+			factor = 0
 			location = {
-				NOT = {
-					religion_group = christian
+				NOR = {
+					region = world_europe_west_iberia
+					#region = world_europe_west_francia
+					region = world_europe_south
 				}
 			}
 		}
 		modifier = {
-			factor = 1.5
+			factor = 2
 			location = {
 				OR = {
 					region = world_europe_south_italy
@@ -2352,126 +1226,87 @@
 			}
 		}
 		modifier = {
-			factor = 1.5
-			location = {
-				OR = {
-					culture_group = crusader_group	#FPS: south European cultures
-					culture_group = latin
-					culture_group = iberian
-					culture_group = byzantine
-					culture_group = south_slavic
-				}
-			}
-		}
-		modifier = {
-			factor = 1.5
-			is_patrician = yes
-		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
-			AND = {	#FPS: south European architecture background
-				is_alive = no
-				NOR = {
-					culture_group = crusader_group	#FPS: south European cultures
-					culture_group = latin
-					culture_group = iberian
-					culture_group = byzantine
-					culture_group = south_slavic
+			OR = {
+				is_nomadic = yes
+				is_tribal = yes
+				AND = {
+					liege = {
+						OR = {
+							is_nomadic = yes
+							is_tribal = yes
+						}
+					}
+					OR = {
+						is_landed = no
+						AND = {
+							is_landed = yes
+							has_job_title = yes
+						}
+					}
 				}
 			}
 		}
 	}
 	
-	26 = { # Alhambra
-		factor = 1
-		modifier = {	#FPS: Basic check for warfare and seaborne:	#1: Building
+	25 = { # Indian
+		factor = 2
+		modifier = {
+			factor = 0
+			location = { NOT = { region = world_india } }
+		}
+		modifier = {
+			factor = 1.5
+			religion_group = indian_group
+		}
+		modifier = {
 			factor = 0
 			OR = {
-				location = {
-					is_land = no
-				}
+				is_nomadic = yes
+				is_tribal = yes
 				AND = {
-					in_command = yes
-					NOT = {
-						siege = {
-							is_attacker = no
+					liege = {
+						OR = {
+							is_nomadic = yes
+							is_tribal = yes
+						}
+					}
+					OR = {
+						is_landed = no
+						AND = {
+							is_landed = yes
+							has_job_title = yes
 						}
 					}
 				}
 			}
 		}
-		modifier = {	#FPS: Geographic/Religion/Culture allowed
-			factor = 0
-			location = {	#FPS: Eastern architecture
-				NOR = {
-					region = world_europe_west_iberia
-					region = world_africa_north
-					region = world_middle_east
-				}
-			}
-		}
-		modifier = {	#FPS: Government/Location allowed
-			factor = 0
-			OR = {
-				NOR = {
-					is_feudal = yes
-					is_theocracy = yes
-					is_republic = yes
-				}
-				location = {
-					NOR = {
-						holding_type = castle
-						holding_type = city
-						holding_type = temple
-					}
-				}
-			}
-		}
-		#modifier = {	#FPS: Other major restrictions
-		#	factor = 0
-		#}
-		
 		modifier = {
-			factor = 0.5
-			location = {
-				NOT = {
-					religion_group = muslim
-				}
-			}
+			factor = 0
+			has_character_modifier = in_seclusion
+		}
+	}
+	
+	26 = { # African Savanna 2 - changed to saint
+		factor = 100
+		modifier = {
+			factor = 0
+			is_alive = yes
 		}
 		modifier = {
-			factor = 1.5
-			location = {
-				region = world_europe_west_iberia
-			}
-		}
-		modifier = {
-			factor = 1.5
-			location = {
-				culture_group = arabic
-			}
-		}
-		
-		modifier = {	#FPS: R.I.P. Mechanics
 			factor = 0
-			AND = {	#FPS: south Mediterranean architecture background
-				is_alive = no
-				NOR = {
-					culture_group = iberian	#FPS: south Mediterranean cultures
-					culture_group = arabic
-					culture_group = aramaic
-					culture_group = crusader_group
-					culture_group = coptic_group
-					AND = {
-						culture_group = israelite
-						NOT = {
-							culture = ashkenazi
-						}
-					}
-				}
-			}
+			NOT = { trait = saint }
 		}
+		# modifier = {
+			# factor = 0
+			# NOT = { has_global_flag = EMF }
+			# NOR = {
+				# has_nickname = nick_the_saint
+				# has_nickname = nick_the_martyr
+				# has_nickname = nick_the_apostle
+				
+			# }
+		# }
 	}
 }
 
