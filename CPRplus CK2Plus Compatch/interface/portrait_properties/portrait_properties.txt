@@ -2488,14 +2488,10 @@
 			NOR = {
 				graphical_culture = norsegfx
 				graphical_culture = crimeangothicgfx
-				graphical_culture = saxongfx
-				graphical_culture = dutchgfx
-				graphical_culture = africangfx
-				graphical_culture = guanchegfx
-				graphical_culture = westafricangfx
 				graphical_culture = celticgfx
 				graphical_culture = norsegaelgfx
 				graphical_culture = arabicgfx
+				graphical_culture = egyptiangfx
 				graphical_culture = kurdishgfx
 				graphical_culture = levantinegfx
 				graphical_culture = assyriangfx
@@ -2504,10 +2500,6 @@
 					NOT = { year = 950 }
 				}
 			}
-		}
-		modifier = {
-			factor = 0.1
-			is_female = yes
 		}
 		modifier = {
 			factor = 0.1
@@ -2516,14 +2508,10 @@
 			OR = {
 				graphical_culture = norsegfx
 				graphical_culture = crimeangothicgfx
-				graphical_culture = saxongfx
-				graphical_culture = dutchgfx
-				graphical_culture = africangfx
-				graphical_culture = guanchegfx
-				graphical_culture = westafricangfx
 				graphical_culture = celticgfx
 				graphical_culture = norsegaelgfx
 				graphical_culture = arabicgfx
+				graphical_culture = egyptiangfx
 				graphical_culture = kurdishgfx
 				graphical_culture = levantinegfx
 				graphical_culture = assyriangfx
@@ -2532,6 +2520,16 @@
 					NOT = { year = 950 }
 				}
 			}
+		}
+		modifier = {
+			factor = 0
+			follows_filial_piety_trigger = yes
+			NOT = { age = 81 }
+			is_female = no
+		}
+		modifier = {
+			factor = 100
+			is_devout_chinese_buddhist_trigger = yes
 		}
 	}
 
@@ -2544,31 +2542,16 @@
 			OR = {
 				graphical_culture = normangfx
 				graphical_culture = frankishgfx
-				graphical_culture = englishgfx
-				graphical_culture = germangfx
-			}
-			NOT = { year = 1100 }
-			NOT = { trait = monk }
-		}
-		modifier = {
-			factor = 0
-			trait = monk
-			OR = {
-				#graphical_culture = westerngfx
-				graphical_culture = germangfx
 				AND = {
 					graphical_culture = bretongfx
 					year = 950
 				}
-				graphical_culture = englishgfx
-				graphical_culture = frankishgfx
 				AND = {
 					graphical_culture = hungariangfx
 					religion_group = christian
 				}
-				graphical_culture = normangfx
-				graphical_culture = otakugfx
 			}
+			NOT = { year = 1100 }
 		}
 		modifier = {
 			factor = 0.1
@@ -2580,26 +2563,6 @@
 	2 = { # Page
 		factor = 1
 		modifier = {
-			factor = 0
-			trait = monk
-			OR = {
-				#graphical_culture = westerngfx
-				graphical_culture = germangfx
-				AND = {
-					graphical_culture = bretongfx
-					year = 950
-				}
-				graphical_culture = englishgfx
-				graphical_culture = frankishgfx
-				AND = {
-					graphical_culture = hungariangfx
-					religion_group = christian
-				}
-				graphical_culture = normangfx
-				graphical_culture = otakugfx
-			}
-		}
-		modifier = {
 			factor = 0.1
 			age = 81
 			is_female = no
@@ -2608,26 +2571,6 @@
 
 	3 = { # Synth
 		factor = 1
-		modifier = {
-			factor = 0
-			trait = monk
-			OR = {
-				#graphical_culture = westerngfx
-				graphical_culture = germangfx
-				AND = {
-					graphical_culture = bretongfx
-					year = 950
-				}
-				graphical_culture = englishgfx
-				graphical_culture = frankishgfx
-				AND = {
-					graphical_culture = hungariangfx
-					religion_group = christian
-				}
-				graphical_culture = normangfx
-				graphical_culture = otakugfx
-			}
-		}
 		modifier = {
 			factor = 0.1
 			age = 81
@@ -2660,7 +2603,6 @@
 					graphical_culture = hungariangfx
 					religion_group = christian
 				}
-				graphical_culture = otakugfx
 			}
 			year = 1100
 		}
@@ -2720,11 +2662,10 @@
 				graphical_culture = normangfx
 				graphical_culture = dutchgfx
 				graphical_culture = saxongfx
-				graphical_culture = otakugfx
 			}
 		}
 		modifier = {
-			factor = 0
+			factor = 0.1	# NOTE: Not entirely sure here, if only related to balding then should be 0.1, otherwise 0 probably
 			age = 81
 			is_female = no
 			NOR = {
@@ -2752,7 +2693,6 @@
 					graphical_culture = hungariangfx
 					religion_group = christian
 				}
-				graphical_culture = otakugfx
 			}
 			year = 1100
 		}
@@ -2800,6 +2740,11 @@
 			age = 81
 			is_female = no
 		}
+		modifier = {
+			factor = 0
+			is_female = yes
+			follows_filial_piety_trigger = yes
+		}
 	}
 	
 	10 = {  # Long Uncouth
@@ -2808,6 +2753,15 @@
 			factor = 0.1
 			age = 81
 			is_female = no
+		}
+		modifier = {
+			factor = 0
+			follows_filial_piety_trigger = yes
+		}
+		modifier = {
+			factor = 0
+			is_female = yes
+			follows_filial_piety_trigger = yes
 		}
 	}
 	
@@ -2818,6 +2772,11 @@
 			age = 81
 			is_female = no
 		}
+		modifier = {
+			factor = 0
+			is_female = yes
+			follows_filial_piety_trigger = yes
+		}
 	}
 	
 	12 = { # Marine
@@ -2827,6 +2786,19 @@
 			age = 81
 			is_female = no
 		}
+		modifier = {
+			factor = 0
+			follows_filial_piety_trigger = yes
+		}
+		modifier = {
+			factor = 0
+			is_female = yes
+			follows_filial_piety_trigger = yes
+		}
+		modifier = {
+			factor = 2
+			filial_piety_maiden_trigger = yes
+		}
 	}
 	
 	13 = { # Mohawk
@@ -2835,6 +2807,19 @@
 			factor = 0.1
 			age = 81
 			is_female = no
+		}
+		modifier = {
+			factor = 0
+			follows_filial_piety_trigger = yes
+		}
+		modifier = {
+			factor = 0
+			is_female = yes
+			follows_filial_piety_trigger = yes
+		}
+		modifier = {
+			factor = 2
+			filial_piety_maiden_trigger = yes
 		}
 	}
 	
@@ -2846,7 +2831,6 @@
 			OR = {
 				graphical_culture = westernslavicgfx
 				graphical_culture = easternslavicgfx
-				graphical_culture = commiegfx
 			}
 			NOT = { religion_group = pagan_group }
 		}
@@ -2866,12 +2850,29 @@
 			age = 81
 			is_female = no
 		}
+		modifier = {
+			factor = 0
+			follows_filial_piety_trigger = yes
+		}
+		modifier = {
+			factor = 0
+			is_female = yes
+			follows_filial_piety_trigger = yes
+		}
+		modifier = {
+			factor = 2
+			filial_piety_maiden_trigger = yes
+		}
+	}
+	
+	15 = { # Mohawk
+		factor = 1
 	}
 }
 
 # p2 base
-#2 = {
-#}
+2 = {
+}
 
 # p3 clothes
 3 = {
